@@ -1,0 +1,24 @@
+<p>
+    &iexcl;Hola {{ user.first_name }}!
+</p>
+<p>
+    Aqu&iacute; tienes los datos de contacto de {{ artist_profile.artistic_name }}:
+</p>
+<ul>
+    {% if contact.agency_name %}
+    <li>Agencia: {{ contact.agency_name }}</li>
+    {% endif %}
+    <li>Tel&eacute;fono: {{ contact.phone }}</li><!--
+ --><li>Correo electr&oacute;nico: {{ contact.email }}</li>
+</ul>
+<p>
+    Si alguno de los datos facilitados no es correcto, responde este correo indicando el problema.
+</p>
+<p>
+    Si tienes cualquier duda, consulta nuestra <a href="https://www.directoalartista.com/faq">ayuda</a> o
+    contacta a trav&eacute;s del <a href="https://www.directoalartista.com/contact">formulario</a>.
+</p>
+<p>
+    Atentamente,<br>
+    El equipo de Directo al Artista
+</p>

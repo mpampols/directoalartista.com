@@ -1,0 +1,258 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }} myaccountartist{% endblock %}
+
+{% block page_title %}Mi cuenta - Directo al Artista{% endblock %}
+{% block meta_description %}Mi cuenta{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block nav-myaccount %}
+<li class="dropdown active">
+{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li class="active">Mi cuenta</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" aria-hidden="true">{{ message }}</div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-center">Mi cuenta</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>&iexcl;Hola <strong>{{ user.first_name }}</strong>!</h3>
+                <h2>Publicar anuncio de artista</h2>
+                <p>
+                    Como artista puedes publicar <strong>1 anuncio</strong>.
+                </p>
+            </div>
+        </div>
+        {% for artist_profile in artist_profiles %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><a href="/catalog/{{ artist_profile.category.slug }}/{{ artist_profile.slug }}">{{ artist_profile.artistic_name }}</a></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <a href="/catalog/{{ artist_profile.category.slug }}/{{ artist_profile.slug }}" class="thumbnail">
+                                    {% if artist_profile.get_image_catalog_05 %}
+                                    <img src="{{ MEDIA_URL }}files/artistprofiles/{{ artist_profile.get_image_catalog_05 }}.jpg"
+                                         alt="{{ artist_profile.artist_name }}">
+                                    {% else %}
+                                    <img src="{{ STATIC_URL }}img/artist-profile-without-photo-340px.png"
+                                         alt="{{ artist_profile.artist_name }}">
+                                    {% endif %}
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                {% if artist_profile.get_published_status %}
+                                <p>Estado del anuncio: <span class="text-success">Publicado</span></p>
+                                {% else %}
+                                <p>Estado del anuncio: <span class="text-danger">No publicado</span></p>
+                                {% endif %}
+                                {% if artist_profile.is_vip %}
+                                <p>VIP: <span class="text-success">Activado</span></p>
+                                {% else %}
+                                <p>VIP: <span class="text-danger">Desactivado</span></p>
+                                {% endif %}
+                                <div>
+                                    <a href="/artistprofile/edit/{{ artist_profile.id }}" class="btn btn-primary">Modificar</a>
+                                    {% if artist_profile.get_published_status %}
+                                    <a href="/artistprofile/publish/{{ artist_profile.id }}" class="btn btn-warning">Despublicar</a>
+                                    {% else %}
+                                    <a href="/artistprofile/publish/{{ artist_profile.id }}" class="btn btn-success">Publicar</a>
+                                    {% endif %}
+                                    <a href="/artistprofile/delete/{{ artist_profile.id }}" class="btn btn-danger">Eliminar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        {% if not artist_profiles %}
+        <div class="row">
+            <div class="col-md-12">
+                <strong><a href="/artistprofile/add">+ Agregar anuncio</a></strong>
+            </div>
+        </div>
+        {% endif %}
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Suscripci&oacute;n</h2>
+
+                {% if plan_expiration_date %}
+                <p>
+                    Has cancelado la suscripci&oacute;n actual, el {{ plan_expiration_date }} volver&aacute;s al Plan Gratuito.
+                </p>
+                {% endif %}
+
+                {% if user.artist_plan == '4' %}
+                <p>
+                    <strong>Plan actual: Gratuito</strong>
+                </p>
+                <p>
+                    Actual&iacute;zalo ahora y multiplica tus contactos.
+                </p>
+
+                {% elif user.artist_plan == '3' %}
+                <p>
+                    <strong>Plan actual: Iniciado</strong>
+                </p>
+                <p>
+                    Puedes actualizar tu plan a Ilimitado, haciendo m&aacute;s visible tu perfil, quitando ciertas limitaciones y multiplicando tus contactos.
+                </p>
+                    {% if not plan_expiration_date %}
+                    <p class="text-left">
+                        <a href="/upgradeplan/4" class="btn btn-danger btn-lg">Cancelar pago</a>
+                    </p>
+                    {% endif %}
+
+                {% elif user.artist_plan == '2' %}
+                <p>
+                    <strong>Plan actual: Ilimitado</strong>
+                </p>
+                    {% if not plan_expiration_date %}
+                    <p class="text-left">
+                        <a href="/upgradeplan/4" class="btn btn-danger btn-lg">Cancelar pago</a>
+                    </p>
+                    {% endif %}
+                {% endif %}
+
+                <div class="row">
+                    <div class="pricing-table">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="pricing-table-free">
+                                <div class="pricing-table-header-free">
+                                    <h2>Gratuito</h2>
+                                    <h3>0 &euro;/mes</h3>
+                                </div>
+                                <div class="pricing-table-features">
+                                    <p>Ideal para <strong>tener tu pr&oacute;pio anuncio</strong> de artista</p>
+                                    <p>S&oacute;lo <strong>2 provincias</strong> seleccionables</p>
+                                    <p><strong>2 tipos de evento</strong> seleccionables</p>
+                                    <p>Puedes subir <strong>1 fotograf&iacute;a</strong> y <strong>1 v&iacute;deo</strong></p>
+                                    <p><strong>1 categor&iacute;a</strong> de artista seleccionable</p>
+                                    <p>Saldr&aacute;s en el <strong>&uacute;ltimo bloque</strong> de las b&uacute;squedas.</p>
+                                </div>
+                                <div class="pricing-table-signup-free">
+                                    {% if user.is_authenticated and user.user_type == 'A' and user.artist_plan == '4' %}
+                                    <p><a href="#">Tu plan</a></p>
+                                    {% elif user.is_authenticated and user.user_type == 'A' %}
+                                    <p><a href="/upgradeplan/4">Contratar</a></p>
+                                    {% elif user.is_authenticated %}
+                                    <p><a href="#">Para artistas</a></p>
+                                    {% else %}
+                                    <p><a href="/accounts/artist/register/">Reg&iacute;strate</a></p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="pricing-table-starter">
+                                <div class="pricing-table-header-starter">
+                                    <h2>Iniciado</h2>
+                                    <h3>4,99 &euro;/mes</h3>
+                                </div>
+                                <div class="pricing-table-features">
+                                    <p>Ideal para <strong>iniciados que quieran tener un anuncio m&aacute;s completo</strong></p>
+                                    <p><strong>4 provincias</strong> seleccionables</p>
+                                    <p><strong>Ilimitados tipos de evento</strong></p>
+                                    <p>Puedes subir <strong>7 fotograf&iacute;as</strong> y <strong>7 v&iacute;deos</strong></p>
+                                    <p><strong>2 categor&iacute;as</strong> de artista seleccionables</p>
+                                    <p>Saldr&aacute;s en el <strong>segundo bloque</strong> de las b&uacute;squedas.</p>
+                                </div>
+                                <div class="pricing-table-signup-starter">
+                                    {% if user.is_authenticated and user.user_type == 'A' and user.artist_plan == '3' %}
+                                    <p><a href="#">Tu plan</a></p>
+                                    {% elif user.is_authenticated and user.user_type == 'A' %}
+                                    <p><a href="/upgradeplan/3">Contratar</a></p>
+                                    {% elif user.is_authenticated %}
+                                    <p><a href="#">Para artistas</a></p>
+                                    {% else %}
+                                    <p><a href="/accounts/artist/register/">Reg&iacute;strate</a></p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="pricing-table-unlimited">
+                                <div class="pricing-table-header-unlimited">
+                                    <h2>Ilimitado</h2>
+                                    <h3>24,99 &euro;/mes</h3>
+                                </div>
+                                <div class="pricing-table-features">
+                                    <p>Ideal para los <strong>artitas m&aacute;s solicitados</strong></p>
+                                    <p><strong>Ilimitadas provincias</strong></p>
+                                    <p><strong>Ilimitados tipos de evento</strong></p>
+                                    <p>Puedes subir <strong>7 fotograf&iacute;as</strong> y <strong>7 v&iacute;deos</strong></p>
+                                    <p><strong>6 categor&iacute;as</strong> de artista seleccionables</p>
+                                    <p>Saldr&aacute;s en el <strong>primer bloque</strong> de las b&uacute;squedas.</p>
+                                </div>
+                                <div class="pricing-table-signup-unlimited">
+                                    {% if user.is_authenticated and user.user_type == 'A' and user.artist_plan == '2' %}
+                                    <p><a href="#">Tu plan</a></p>
+                                    {% elif user.is_authenticated and user.user_type == 'A' %}
+                                    <p><a href="/upgradeplan/2">Contratar</a></p>
+                                    {% elif user.is_authenticated %}
+                                    <p><a href="#">Para artistas</a></p>
+                                    {% else %}
+                                    <p><a href="/accounts/artist/register/">Reg&iacute;strate</a></p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Modificar cuenta de usuario</h2>
+                <p>
+                    Puedes actualizar tu n&uacute;mero de tel&eacute;fono, correo electr&oacute;nico, nombre, direcci&oacute;n, suscripci&oacute;n al newsletter, entre otros.
+                </p>
+                <p class="text-left">
+                    <a href="edit" class="btn btn-success btn-lg">Modificar cuenta</a>
+                    <a href="/accounts/password_change" class="btn btn-success btn-lg">Cambiar contrase&ntilde;a</a>
+                </p>
+
+                <h2>Desactivar mi cuenta</h2>
+                <p>
+                    Te echaremos en falta, pero no obligamos a nadie a quedarse. Tu cuenta ser&aacute; desactivada, pero en cualquier momento podr&aacute;s activarla de nuevo.
+                </p>
+                <p class="text-left">
+                    <a id="disable_account" class="btn btn-danger btn-lg" rel="disable_account" data-content="" title="&iquest;Est&aacute;s seguro?">Desactivar cuenta</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

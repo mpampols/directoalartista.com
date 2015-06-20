@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }} registercomplete{% endblock %}
+
+{% block page_title %}Registro completado - Directo al Artista{% endblock %}
+{% block meta_description %}Registro completado{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li><a href="/register">Reg&iacute;strate</a></li><!--
+                     --><li class="active">Registro completado</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Registro completado</h1>
+                <p>
+                    Te hemos enviado un correo electr&oacute;nico, clica en &quot;Validar&quot; para comprobar que la direcci&oacute;n es correcta y  poder disfrutar de Directo al Artista.
+                </p>
+                <p>
+                    Si no lo encuentras en tu bandeja de entrada, revisa en Spam. Puede tardar algunos minutos en llegar, si no, puedes solicitar que se reenvie.
+                </p>
+                <div class="text-right">
+                    <p>
+                        <a class="btn btn-success btn-lg" href="/accounts/resend">Reenviar correo</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

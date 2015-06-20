@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }} howitworks{% endblock %}
+
+{% block page_title %}C&oacute;mo funciona - Directo al Artista{% endblock %}
+{% block meta_description %}Si eres artistas, crea tu anuncio gratuitamente. Si buscas artistas, contacta directamente con los m&aacute;s famosos, sin intermediarios. Obt&eacute;n los mejores precios.{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block nav-how %}
+<li class="active">
+    <a href="/how"><span class="glyphicon glyphicon-info-sign"></span> c&oacute;mo funciona</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li class="active">C&oacute;mo funciona</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">C&oacute;mo funciona</h1>
+                <h2>Artistas</h2>
+                <p>
+                    Sabemos que te gusta que <strong>las salas contacten directamente contigo</strong>
+                    para cerrar un bolo y poder llegar al mejor trato sin pasar por agentes. &Eacute;l gana y vosotros tambi&eacute;n.
+                </p>
+                <p>
+                    El servicio es gratuito y puedes ampliar las opciones y visibilidad contratando Plan Iniciado o Plan Ilimitado.
+                    Facilitamos tus datos a los clientes para que contacten directamente contigo.
+                </p>
+                <p>
+                    Si quieres <strong>proteger tu contacto</strong>
+                    y no quieres que sea visible directamente, no te preocupes,
+                    <strong>tenemos la opci&oacute;n VIP, gratuito</strong>. Nosotros filtramos a los posibles clientes.
+                    Act&iacute;valo al publicar tu anuncio.
+                </p>
+                <h3>Escoge tu plan de artista:</h3>
+                <div class="row">
+                    <div class="pricing-table">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="pricing-table-free">
+                                <div class="pricing-table-header-free">
+                                    <h2>Gratuito</h2>
+                                    <h3>0 &euro;/mes</h3>
+                                </div>
+                                <div class="pricing-table-features">
+                                    <p>Ideal para <strong>tener tu pr&oacute;pio anuncio</strong> de artista</p>
+                                    <p>S&oacute;lo <strong>2 provincias</strong> seleccionables</p>
+                                    <p><strong>2 tipos de evento</strong> seleccionables</p>
+                                    <p>Puedes subir <strong>1 fotograf&iacute;a</strong> y <strong>1 v&iacute;deo</strong></p>
+                                    <p><strong>1 categor&iacute;a</strong> de artista seleccionable</p>
+                                    <p>Saldr&aacute;s en el <strong>&uacute;ltimo bloque</strong> de las b&uacute;squedas.</p>
+                                </div>
+                                <div class="pricing-table-signup-free">
+                                    {% if user.is_authenticated and user.user_type == 'A' and user.artist_plan == '4' %}
+                                    <p><a href="#">Tu plan</a></p>
+                                    {% elif user.is_authenticated and user.user_type == 'A' %}
+                                    <p><a href="/upgradeplan/4">Contratar</a></p>
+                                    {% elif user.is_authenticated %}
+                                    <p><a href="#">Para artistas</a></p>
+                                    {% else %}
+                                    <p><a href="/accounts/artist/register/">Reg&iacute;strate</a></p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="pricing-table-starter">
+                                <div class="pricing-table-header-starter">
+                                    <h2>Iniciado</h2>
+                                    <h3>4,99 &euro;/mes</h3>
+                                </div>
+                                <div class="pricing-table-features">
+                                    <p>Ideal para <strong>iniciados que quieran tener un anuncio m&aacute;s completo</strong></p>
+                                    <p><strong>4 provincias</strong> seleccionables</p>
+                                    <p><strong>Ilimitados tipos de evento</strong></p>
+                                    <p>Puedes subir <strong>7 fotograf&iacute;as</strong> y <strong>7 v&iacute;deos</strong></p>
+                                    <p><strong>2 categor&iacute;as</strong> de artista seleccionables</p>
+                                    <p>Saldr&aacute;s en el <strong>segundo bloque</strong> de las b&uacute;squedas.</p>
+                                </div>
+                                <div class="pricing-table-signup-starter">
+                                    {% if user.is_authenticated and user.user_type == 'A' and user.artist_plan == '3' %}
+                                    <p><a href="#">Tu plan</a></p>
+                                    {% elif user.is_authenticated and user.user_type == 'A' %}
+                                    <p><a href="/upgradeplan/3">Contratar</a></p>
+                                    {% elif user.is_authenticated %}
+                                    <p><a href="#">Para artistas</a></p>
+                                    {% else %}
+                                    <p><a href="/accounts/artist/register/">Reg&iacute;strate</a></p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="pricing-table-unlimited">
+                                <div class="pricing-table-header-unlimited">
+                                    <h2>Ilimitado</h2>
+                                    <h3>24,99 &euro;/mes</h3>
+                                </div>
+                                <div class="pricing-table-features">
+                                    <p>Ideal para los <strong>artitas m&aacute;s solicitados</strong></p>
+                                    <p><strong>Ilimitadas provincias</strong></p>
+                                    <p><strong>Ilimitados tipos de evento</strong></p>
+                                    <p>Puedes subir <strong>7 fotograf&iacute;as</strong> y <strong>7 v&iacute;deos</strong></p>
+                                    <p><strong>6 categor&iacute;as</strong> de artista seleccionables</p>
+                                    <p>Saldr&aacute;s en el <strong>primer bloque</strong> de las b&uacute;squedas.</p>
+                                </div>
+                                <div class="pricing-table-signup-unlimited">
+                                    {% if user.is_authenticated and user.user_type == 'A' and user.artist_plan == '2' %}
+                                    <p><a href="#">Tu plan</a></p>
+                                    {% elif user.is_authenticated and user.user_type == 'A' %}
+                                    <p><a href="/upgradeplan/2">Contratar</a></p>
+                                    {% elif user.is_authenticated %}
+                                    <p><a href="#">Para artistas</a></p>
+                                    {% else %}
+                                    <p><a href="/accounts/artist/register/">Reg&iacute;strate</a></p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    <small>* IVA incluido</small>
+                </p>
+                {% if not user.is_authenticated %}
+                <p>
+                    <a class="btn btn-success btn-lg" href="accounts/artist/register">Reg&iacute;strate como artista</a>
+                </p>
+                {% endif %}
+                <p>&nbsp;</p>
+
+                <h2>Promotores</h2>
+                <p>
+                    Si tienes una sala, organizas una fiesta, tienes una pe&ntilde;a o preparas la fiesta mayor de tu ayuntamiento, este es tu sitio. Habla y contrata directamente con el artista para obtener los mejores precios.
+                    Con Directo al Artista puedes contactar directamente con &eacute;l o su road manager directo, salt&aacute;ndote los intermediarios.
+                </p>
+                <p>
+                    <strong>T&uacute; ganas</strong>
+                    salt&aacute;ndote intermediarios y el
+                    <strong>artista gana</strong>
+                    acordando la actuaci&oacute;n directamente contigo. Si un artista no puede ser contactado directamente por tener exclusividad con alguien, te damos su contacto m&aacute;s directo para que no pierdas dinero ni tiempo.
+                </p>
+                <h3>Contacto con la mayor&iacute;a de artistas</h3>
+                <p>
+                    Instant&aacute;neo y <strong>gratuito</strong>.
+                </p>
+                <h3>Contacto con artistas VIP</h3>
+                <p>
+                    Tiene un coste de <strong>9,99 &euro;</strong> (precio promocional, IVA incluido) por contacto. Nos tendr&aacute;s que
+                    enviar tus datos y los de la sala, nosotros lo comprobaremos y te facilitaremos su contacto.
+                    Para tus pr&oacute;ximas contrataciones, ya podr&aacute;s acceder a los contactos VIP sin esperas.
+                </p>
+                {% if not user.is_authenticated %}
+                <p>
+                    <a class="btn btn-success btn-lg" href="accounts/promoter/register">Reg&iacute;strate como promotor</a>
+                </p>
+                {% endif %}
+                <p>&nbsp;</p>
+
+                <h2>Agencias</h2>
+                <p>
+                    Como agencia tienes
+                    <strong>las ventajas de los dos mundos</strong>: artistas y promotores.
+                </p>
+                <p>
+                    Puedes publicar <strong>gratuitamente</strong> anuncios, y activar la opci&oacute;n VIP de protecci&oacute;n de contacto
+                    en los anuncios que consideres. También podrás contactar con todos nuestros artistas.
+                </p>
+                <p>
+                    Si s&oacute;lo te interesa contactar con artistas, puedes darte de alta como promotor, así obtendr&aacute;s acceso inmediato.
+                </p>
+                {% if not user.is_authenticated %}
+                <p>
+                    <a class="btn btn-success btn-lg" href="accounts/agency/register">Reg&iacute;strate como agencia</a>
+                </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

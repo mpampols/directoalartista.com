@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load l10n %}
+{% block body_class %}{{ block.super }}upgradeplanstarter{% endblock %}
+
+{% block page_title %}Cambiar a Plan Iniciado - Directo al Artista{% endblock %}
+{% block meta_description %}Cambiar a Plan Iniciado{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li><a href="/accounts/profile">Mi cuenta</a></li><!--
+                     --><li><a href="/upgradeplan">Planes art&iacute;sticos</a></li><!--
+                     --><li class="active">Cambiar a Plan Iniciado</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Cambiar a Plan Iniciado</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <p>
+                    El pago se realiza a trav&eacute;s de la plataforma segura <strong>Paypal</strong>, utilizando
+                    tu tarjeta o usuario.
+                </p>
+                <p>
+                    Este plan te permite:
+                </p>
+                <ul>
+                    <li><strong>Descripci&oacute;n</strong> del espect&aacute;culo</li><!--
+                 --><li>Indicar <strong>precio orientativo</strong></li><!--
+                 --><li>Contacto por <strong>correo</strong></li><!--
+                 --><li>Contacto por <strong>tel&eacute;fono</strong></li><!--
+                 --><li><strong>2 categor&iacute;as</strong> de artista seleccionables</li><!--
+                 --><li><strong>Todos los tipos de evento</strong> seleccionables</li><!--
+                 --><li><strong>4 provincias</strong> seleccionables</li><!--
+                 --><li>Puedes subir <strong>7 fotograf&iacute;as</strong> y <strong>7 v&iacute;deos</strong></li><!--
+                 --><li>Saldr&aacute;s en el <strong>segundo bloque</strong> de las b&uacute;squedas</li>
+                </ul>
+            </div>
+            <div class="col-md-5">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Pago con Paypal</h3>
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <td>{{ transitem.description }}</td>
+                            <td class="text-right">{{ trans.price|floatformat:"2" }} &euro;</td>
+                        </tr>
+                        <tr>
+                            <td>IVA</td>
+                            <td class="text-right">{{ trans.vat|floatformat:"2" }} &euro;</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td class="text-right"><strong>{{ trans.gross_amount|floatformat:"2" }} &euro;</strong></td>
+                        </tr>
+                    </table>
+                    <form class="form-horizontal" action="{{ PAYPAL_URL }}" method="post">
+                        {% csrf_token %}
+                        <div class="panel-body text-right">
+                            <input id="id_business" name="business" type="hidden" value="{{ PAYPAL_RECEIVER_EMAIL }}">
+                            <input id="id_item_name" name="item_name" type="hidden" value="{{ transitem.description }}">
+                            <input id="id_item_number" name="item_number" type="hidden" value="{{ transitem.item_id }}">
+                            <input id="id_a3" name="a3" type="hidden" value="{% localize off %}{{ trans.gross_amount }}{% endlocalize %}">
+                            <input id="id_currency_code" name="currency_code" type="hidden" value="EUR">
+                            <input id="id_p3" name="p3" type="hidden" value="1">
+                            <input id="id_t3" name="t3" type="hidden" value="M">
+                            <input id="id_src" name="src" type="hidden" value="1">
+                            <input id="id_sra" name="sra" type="hidden" value="1">
+                            <input id="id_no_note" name="no_note" type="hidden" value="1">
+                            <input id="id_cancel_return" name="cancel_return" type="hidden" value="{{ PAYPAL_CANCEL_RETURN }}">
+                            <input id="id_return_url" name="return" type="hidden" value="{{ PAYPAL_RETURN_URL }}">
+                            <input id="id_cmd" name="cmd" type="hidden" value="_xclick-subscriptions">
+                            <input id="id_charset" name="charset" type="hidden" value="utf-8">
+                            <input id="id_no_shipping" name="no_shipping" type="hidden" value="1">
+                            <input type="hidden" name="modify" value="0">
+                            <input id="id_invoice" name="invoice" type="hidden" value="{{ trans.id }}">
+                            <input type="image" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="Suscribir ahora">
+                        </div>
+                    </form>
+                </div>
+                <p>
+                    <small>
+                        * Para evitar cualquier interrupci&oacute;n del servicio, tu suscripci&oacute;n se renovar&aacute; autom&aacute;ticamente cada mes. Por supuesto, si lo deseas puedes cancelar la renovaci&oacute;n autom&aacute;tica de tu Plan en <a href="/myaccount">Mi cuenta</a>.
+                    </small>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

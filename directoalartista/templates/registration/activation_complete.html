@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }} registercomplete{% endblock %}
+
+{% block page_title %}Cuenta activada - Directo al Artista{% endblock %}
+{% block meta_description %}Cuenta activada correctamente{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block nav-myaccount %}
+<li class="dropdown active">
+{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li><a href="/accounts/profile">Mi cuenta</a></li><!--
+                     --><li class="active">¡Genial! Cuenta activada</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">¡Genial! Cuenta activada</h1>
+
+                {% if user.user_type == 'A' %}
+                <p>
+                    Ya puedes <strong>publicar tu anuncio gratuitamente: <a href="/artistprofile/add">+ Agregar anuncio</a></strong>.
+                    Si no quieres que se vea directamente tu contacto</strong>, activa la opci&oacute;n VIP al crear el anuncio.
+                </p>
+                <p>
+                    Actualiza tu plan para ganar visibilidad y llegar
+                    a m&aacute;s gente. Puedes consultar todos los planes disponibles <a href="/upgradeplan">aqu&iacute;</a>.
+                </p>
+
+                {% elif user.user_type == 'P' %}
+                <p>
+                    Visita nuestro <a href="/catalog">cat&aacute;logo</a> para empezar a contactar con los artistas.
+                </p>
+                <p>
+                    El <strong>contacto</strong> con la mayor&iacute;a de ellos es <strong>gratuito</strong>. El contacto
+                    con los artistas VIP tiene un coste de 9,99 &euro; (precio promocional). La primera vez que quieras contactar con
+                    ellos, te validaremos como promotor y a partir de all&iacute; ya podr&aacute;s contactar con el
+                    resto de artistas VIP <strong>sin esperas</strong>.
+                </p>
+
+                {% elif user.user_type == 'G' %}
+                <p>
+                    Ya puedes contactar con la mayor&iacute;a de artistas de nuestro <a href="/catalog">cat&aacute;logo</a>.
+                </p>
+                <p>
+                    Para poder publicar anuncios y contactar con artistas VIP, primero te tenemos que validar, este proceso
+                    lleba como m&aacute;ximo 72h.
+                </p>
+
+                {% endif %}
+                <p>
+                    Para obtener m&aacute;s informaci&oacute; visita la secci&oacute;n <a href="/how">c&oacute;mo funciona</a>.
+                    Para cualquier duda, visita nuestra <a href="/faq">Ayuda</a> o contacta con nosotros a trav&eacute;s
+                    del <a href="/contact">formulario</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

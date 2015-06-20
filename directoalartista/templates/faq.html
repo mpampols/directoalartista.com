@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }}Ayuda{% endblock %}
+
+{% block page_title %}Ayuda - Directo al Artista{% endblock %}
+{% block meta_description %}Ayuda Preguntas y respuestas frecuentes{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li class="active">Ayuda</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Ayuda</h1>
+
+                <h4>&iquest;Que precio tiene utilizar Directo al Artista?</h4>
+                <p>
+                    Te ofrecemos opciones gratuitas para todos los usuarios, tanto artistas como promotores y otras de pago. Entra en el apartado <a href="/how">cómo funciona</a> y desc&uacute;brelo.
+                </p>
+
+                <h4>Estoy registrado pero no me ha llegado ning&uacute;n correo de activaci&oacute;n</h4>
+                <p>
+                    Revisa que no lo tengas en la carpeta de spam. Si no est&aacute;, puedes pedir que se te reenvie
+                    uno nuevo <a href="/accounts/resend">aqu&iacute;</a>.
+                </p>
+
+                <h4>&iquest;Es seguro pagar con tarjeta?</h4>
+                <p>
+                    S&iacute;, utilizamos conexi&oacute;n segura encriptada para tramitar todos los pagos a trav&eacute;s de Paypal.
+                </p>
+                <h4>Necesito factura. &iquest;Qu&eacute; hago?</h4>
+                <p>
+                    Al realizar el pago, recibir&aacute;s la factura en tu correo electr&oacute;nico.
+                </p>
+
+                <h4>&iquest;Puedo recuperar o reiniciar la contrase&ntilde;a?</h4>
+                <p>
+                    Entra en <a href="/password_reset">He olvidado mi contrase&ntilde;a</a>. Nos tendr&aacute;s que indicar tu direcci&oacute;n y te enviaremos un correo electr&oacute;nica para reiniciarla.
+                </p>
+
+                <h4>
+                    Quiero cambiar mi correo electr&oacute;nico, contrase&ntilde;a o mis datos personales
+                </h4>
+                <p>
+                    S&oacute;lo tienes que iniciar sesi&oacute;n, ir a <a href="/accounts/profile">Mi cuenta</a> y clicar en Modificar cuenta.
+                </p>
+
+                <h4>
+                    &iquest;C&oacute;mo publicar o modificar un anuncio de artista?
+                </h4>
+                <p>
+                    Tienes que entrar con tu usuario, e ir a <a href="/accounts/profile">Mi cuenta</a>. All&iacute; podr&aacute;s publicar un nuevo anuncio o modificarlo si ya tienes uno.
+                </p>
+
+                <h4>&iquest;Qu&eacute; se entiende por promotor?</h4>
+                <p>
+                    Promotor es toda persona que quiere contratar un artista. Puede ser el propietario de una sala (pub, discoteca...), una agencia de eventos o publicidad, alguien que organize una fiesta para su pueblo o una pe&ntilde;a...
+                </p>
+
+                <h4>Soy artista. &iquest;Puedo proteger mis datos de contacto de cualquiera?</h4>
+                <p>
+                    S&iacute;, al crear tu anuncio activa la opci&oacute;n VIP. De esta manera s&oacute;lo los clientes validados por nosotros tendr&aacute;n acceso a tu contacto. Ten en cuenta que para t&iacute; es gratuito, pero los clientes tendr&aacute;n que pagar para contactar.
+                </p>
+
+                <h4>Soy una agencia. &iquest;Puedo poner a mis artistas?</h4>
+                <p>
+                    Todos los contactos facilitados en la web son directament del artista o de su road manager / agencia si estos tienen la exclusiva y llevan todos sus bolos.
+                </p>
+                <p>
+                    Si este es tu caso, s&iacute; que puedes, <a href="/accounts/agency/register">regístrate aquí</a>. Una vez te validemos podr&aacute;s crear los anuncios que necesites y activar la opci&oacute;n VIP a los que quieras.
+                </p>
+
+                <h4>Soy una agencia. &iquest;Puedo tener anuncios con plan Iniciado o Ilimitado?</h4>
+                <p>
+                    S&iacute;. Si son pocas, tienes que abrir una cuenta de artista por anuncio de pago que quieras tener y contratarlo desde all&iacute;. Si son varios anuncios, ponte en contacto con nosotros.
+                </p>
+
+                <h4>El contacto solicitado no es correcto</h4>
+                <p>
+                    Contacta con nosotros rellenando el <a href="/contact/">formulario</a>. Comprobaremos el contacto y te pasamos el correcto. Si has pagado, tambi&eacute;n tienes la opci&oacute; para que te reembolsemos el dinero.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

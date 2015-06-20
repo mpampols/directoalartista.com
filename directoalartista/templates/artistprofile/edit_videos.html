@@ -1,0 +1,21 @@
+{% for video in artist_profile_videos %}
+<div class="col-sm-4 col-md-2">
+    <div class="thumbnail">
+        {% if video.get_thumbnail_url %}
+        <img src="{{ video.get_thumbnail_url }}" />
+        {% else %}
+            <img src="{{ STATIC_URL }}img/video-error.png" />
+        {% endif %}
+        <div class="caption">
+            <a href="/artistprofile/{{ artist_profile_id }}/video/{{ video.id }}/delete" class="btn btn-danger btn-block btn-sm">Eliminar</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% if not artist_profile_videos %}
+<div class="no-videos">
+<p><strong>Todavía no tienes ningun vídeo publicado.</strong></p>
+<p>¿A qué esperas? un perfil con videos tiene más posibilidades de ser contactado!</p>
+</div>
+{% endif %}

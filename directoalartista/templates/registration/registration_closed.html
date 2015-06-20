@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }}registration_disallowed{% endblock %}
+
+{% block page_title %}Registro completado - Directo al Artista{% endblock %}
+{% block meta_description %}Registro completado{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block nav-register %}
+<li class="active">
+    <a href="/register"><span class="glyphicon glyphicon-plus"></span> reg&iacute;strate</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li><a href="/register">Reg&iacute;strate</a></li><!--
+                     --><li class="active">Registro cerrado</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Registro cerrado</h1>
+                <p>
+                    En estos momentos tenemos cerrado el registro de nuevos usuarios.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

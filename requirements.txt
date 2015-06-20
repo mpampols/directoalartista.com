@@ -1,0 +1,11 @@
+Django==1.7.1
+psycopg2==2.5.4
+newrelic
+mailchimp==2.0.9
+django-paypal==0.1.5
+django-categories==1.2.2
+django-money==0.4.2
+premailer==2.8.0
+unidecode==0.04.16
+django-mptt==0.6.1
+django-allauth

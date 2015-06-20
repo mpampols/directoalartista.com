@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load i18n %}
+{% block body_class %}{{ block.super }}catalog{% endblock %}
+
+{% block page_title %}Cat&aacute;logo{% if category %}: {{ category }}{% else %} de artistas{% endif %}{% endblock %}
+{% block meta_description %}Cat&aacute;logo para contrata los mejores artistas sin intermediarios. Contacta directamente con artistas famosos, de televisi&oacute;n, DJ, m&uacute;sicos, etc.{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block nav-catalog %}
+<li class="catalog active">
+    <a href="/catalog"><span class="glyphicon glyphicon-star"></span> cat&aacute;logo de artistas</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li class="active">
+                            Cat&aacute;logo{% if category %}: {{ category }}
+                            {% else %}
+                            de artistas
+                            {% endif %}
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3  col-sm-3 col-xs-12">
+                <h4>B&uacute;squeda</h4>
+                <form role="search" method="get" action="/catalog">
+                    <div class="form-group">
+                        {{ search_form.q }}
+                    </div>
+                    <div class="form-group">
+                        {{ search_form.province }}
+                    </div>
+                    <div class="form-group">
+                        {{ search_form.category }}
+                    </div>
+                    <div class="form-group">
+                        {{ search_form.event_type }}
+                    </div>
+                    <div class="form-group">
+                        {{ search_form.price }}
+                    </div>
+                    <div class="form-group btn-toolbar">
+                        <a class="reset btn btn-info button-control">Borrar filtros</a>
+                        <button type="submit" class="btn btn-danger button-control">Buscar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="catalogue col-md-9 col-sm-9 col-xs-12">
+                <h4>Resultados del cat&aacute;logo</h4>
+                <p>
+                    Si no encuentras el artista que necesitas, <a href="/contact">contacta</a> con nosotros y lo
+                    buscaremos.
+                </p>
+
+                <div class="row">
+                    {% for i in artist_profiles %}
+                    <div class="artist-element col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading header-{{ i.get_owner_plan }}">
+                                <a href="/catalog/{{ i.category.slug }}/{{ i.slug }}">{{ i.artistic_name }}</a>
+                                {% if i.is_vip %}
+                                <div class="is_vip"><span class="glyphicon glyphicon-ok-sign"></span> VIP</div>
+                                {% endif %}
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <a href="/catalog/{{ i.category.slug }}/{{ i.slug }}"
+                                           class="thumbnail"
+                                           title="{{ i.artist_name }}">
+                                            {% if i.get_image_catalog_03 %}
+                                                <div class="thumbnail-container"
+                                                     style="background-image: url('{{ MEDIA_URL }}files/artistprofiles/{{ i.get_image_catalog_03 }}.jpg')">
+                                                </div>
+                                            {% else %}
+                                                <div class="thumbnail-container"
+                                                     style="background-image: url('{{ STATIC_URL }}img/artist-profile-without-photo-340px.png')">
+                                                </div>
+                                            {% endif %}
+                                        </a>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <ul class="list-unstyled artist-fields-resume">
+                                            <li>
+                                                <a href="/catalog/{{ i.category.slug }}">{{ i.category.name }}</a>{% autoescape off %}{{ i.get_secondary_categories }}{% endautoescape %}
+                                            </li><!--
+                                         --><li><strong>Se mueve por</strong> {{ i.get_provinces }}</li><!--
+                                         --><li><strong>Act&uacute;a en</strong> {{ i.get_event_type }}</li><!--
+                                         --><li><strong>Precio</strong> {{ i.get_price }}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-md-12">
+                        <p>
+                            No se han encontrado resultados en esta b&uacute;squeda.
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                {% if artist_profiles %}
+                    <div class="text-center">
+                        <ul class="pagination">
+                            {% if artist_profiles.has_previous %}
+                            <li><a href="?{{ queries.urlencode }}&amp;page={{ artist_profiles.previous_page_number }}">&laquo;</a></li>
+                            {% else %}
+                            <li class="disabled"}><a href="">&laquo;</a></li>
+                            {% endif %}
+
+                            {%  for i in artist_profiles.paginator.page_range %}
+                                {% if i == artist_profiles.number %}
+                                <li class="active"><a href="#">{{ i }}<span class="sr-only">(current)</span></a></li>
+                                {% else %}
+                                <li><a href="?{{ queries.urlencode }}&amp;page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if artist_profiles.has_next %}
+                            <li><a href="?{{ queries.urlencode }}&amp;page={{ artist_profiles.next_page_number }}">&raquo;</a></li>
+                            {% else %}
+                            <li class="disabled"><a href="">&raquo;</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

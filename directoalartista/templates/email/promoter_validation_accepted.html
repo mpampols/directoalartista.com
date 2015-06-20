@@ -1,0 +1,28 @@
+<p>
+    &iexcl;Hola {{ user.first_name }}!
+</p>
+<p>
+    Hemos verificado que cumples con los requisitos para ser promotor, aquí tienes los datos del artista:
+</p>
+<ul>
+    {% if contact.agency_name %}
+    <li>Nombre agencia: {{ contact.agency_name }}</li><!--
+    {% endif %}
+ --><li>Tel&eacute;fono: {{ contact.phone }}</li><!--
+ --><li>Correo electr&oacute;nico: {{ contact.email }}</li>
+</ul>
+<p>
+    Si alguno de los datos facilitados no son correcto, responde este correo indicando el problema.
+</p>
+<p>
+    Te recordamos que las pr&oacute;ximas veces que quieras contactar con un artista VIP, obtendr&aacute;s sus datos
+    de <strong>forma inmediata</strong> despu&eacute;s del pago, sin esperas.
+</p>
+<p>
+    Si tienes cualquier duda, consulta nuestra <a href="https://www.directoalartista.com/faq">ayuda</a> o
+    contacta con nosotros a trav&eacute;s del <a href="https://www.directoalartista.com/contact">formulario</a>.
+</p>
+<p>
+    Atentamente,<br>
+    El equipo de Directo al Artista
+</p>

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }} about{% endblock %}
+
+{% block page_title %}Qui&eacute;nes somos - Directo al Artista{% endblock %}
+{% block meta_description %}Qui&eacute;nes somos{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block nav-about %}
+<li class="active">
+    <a href="/about">qui&eacute;nes somos</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li class="active">Qui&eacute;nes somos</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Qui&eacute;nes somos</h1>
+                <p>
+                    Directo al Artista est&aacute; ideado y desarrollado por
+                    <a href="http://www.tresnetwork.com/" target="_blank">Tres Network</a>,
+                    empresa dedicada al mundo del espect&aacute;culo y de internet.
+                </p>
+                <p>
+                    La idea nace de la necesidad de clientes que quieren contactar directamente con los artistas y de artistas que prefieren que les contacte directamente el cliente final, sin pasar por agencias y conseguir los mejores precios por ambas partes.
+                </p>
+                <p>
+                    La confianza que han dispositado nuestros clientes durante a&ntilde;os, es nuestra mejor garant&iacute;a.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

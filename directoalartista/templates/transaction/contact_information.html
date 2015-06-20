@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }} paymentcontact{% endblock %}
+
+{% block page_title %}Contactar con {{ artist_profile.artistic_name }} - Directo al Artista{% endblock %}
+{% block meta_description %}Contactar con {{ artist_profile.artistic_name }}{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block nav-catalog %}
+<li class="catalog active">
+    <a href="/catalog"><span class="glyphicon glyphicon-star"></span> cat&aacute;logo de artistas</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li><a href="/catalog">Cat&aacute;logo</a></li><!--
+                     --><li><a href="/catalog/{{ artist_profile.category.slug }}">{{ artist_profile.category }}</a></li><!--
+                     --><li><a href="/catalog/{{ artist_profile.slug }}">{{ artist_profile.artistic_name }}</a></li><!--
+                     --><li class="active">Contacto</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Contactar con {{ artist_profile.artistic_name }}</h1>
+                <p>
+                    Los datos para contactar con el artista son:
+                </p>
+                {% if artist_profile.proprietary_user.agency_name %}
+                <p>
+                    <strong>Agencia:</strong> {{ artist_profile.proprietary_user.agency_name }}
+                </p>
+                {% endif %}
+                <p>
+                    <strong>Tel&eacute;fono:</strong> {{ artist_profile.proprietary_user.phone }}
+                </p>
+                <p>
+                    <strong>Correo electr&oacute;nico:</strong> {{ artist_profile.proprietary_user.email }}
+                </p>
+                <p>
+                    Si algunos de los datos facilitados no son correctos, por favor,
+                    <a href="/contact/">contacta</a> con nosotros.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

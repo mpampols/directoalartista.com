@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+{% load i18n %}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es" xml:lang="es"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="es" xml:lang="es"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="es" xml:lang="es"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" xml:lang="es"> <!--<![endif]-->
+    <head>
+        <script>
+            (function(f,b,g){
+                var xo=g.prototype.open,xs=g.prototype.send,c;
+                f.hj=f.hj||function(){(f.hj.q=f.hj.q||[]).push(arguments)};
+                f._hjSettings={hjid:5840, hjsv:2};
+                function ls(){f.hj.documentHtml=b.documentElement.outerHTML;c=b.createElement("script");c.async=1;c.src="//static.hotjar.com/c/hotjar-5840.js?sv=2";b.getElementsByTagName("head")[0].appendChild(c);}
+                if(b.readyState==="interactive"||b.readyState==="complete"||b.readyState==="loaded"){ls();}else{if(b.addEventListener){b.addEventListener("DOMContentLoaded",ls,false);}}
+                if(!f._hjPlayback && b.addEventListener){
+                    g.prototype.open=function(l,j,m,h,k){this._u=j;xo.call(this,l,j,m,h,k)};
+                    g.prototype.send=function(e){var j=this;function h(){if(j.readyState===4){f.hj("_xhr",j._u,j.status,j.response)}}this.addEventListener("readystatechange",h,false);xs.call(this,e)};
+                }
+            })(window,document,window.XMLHttpRequest);
+        </script>
+        <meta charset="utf-8" />
+        <meta name="description" content="{% block meta_description %}{% endblock %}" />
+        <meta name="author" content="{% block meta_author %}{% endblock %}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+        <meta name="google-site-verification" content="HxIFbp5LMdrwrciL8UMhpi_M_BFytwWtLVLpo2qKUnc" />
+        <meta name="detectify-verification" content="e5a12476171e540c26dee4b569e75490" />
+        <meta name="msvalidate.01" content="1E27C84C07B15C913341F98E7CC957BB" />
+        {% block meta-og-image %}
+            <meta property="og:image" content="https://www.directoalartista.com{{ STATIC_URL }}img/logo-icons/facebook-200.png"/>
+        {% endblock %}
+
+        <title>{% block page_title %}{% endblock %}</title>
+
+        {% load compressed %}
+        {% compressed_css 'bootstrap' %}
+        {% compressed_css 'app' %}
+        {% compressed_css '3rdparty' %}
+        {% compressed_css 'print' %}
+
+        <link rel="icon" type="image/png" href="{{ STATIC_URL }}img/logo-icons/favicon.ico">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ STATIC_URL }}img/logo-icons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ STATIC_URL }}img/logo-icons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ STATIC_URL }}img/logo-icons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ STATIC_URL }}img/logo-icons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ STATIC_URL }}img/logo-icons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ STATIC_URL }}img/logo-icons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ STATIC_URL }}img/logo-icons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ STATIC_URL }}img/logo-icons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ STATIC_URL }}img/logo-icons/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="{{ STATIC_URL }}img/logo-icons/favicon-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="{{ STATIC_URL }}img/logo-icons/favicon-160x160.png" sizes="160x160">
+        <link rel="icon" type="image/png" href="{{ STATIC_URL }}img/logo-icons/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="{{ STATIC_URL }}img/logo-icons/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="{{ STATIC_URL }}img/logo-icons/favicon-32x32.png" sizes="32x32">
+        <meta name="msapplication-TileColor" content="#00a300">
+        <meta name="msapplication-TileImage" content="{{ STATIC_URL }}img/logo-icons/mstile-144x144.png">
+
+
+        {% block css %}{% endblock %}
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}" style="zoom: 1">
+    {% block body %}
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-40752129-6', 'directoalartista.com');
+          ga('require', 'displayfeatures');
+          ga('send', 'pageview');
+        </script>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+        <header>
+            <nav class="navbar navbar-default navbar-fixed-top hidden-print" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".daa-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="{% url 'home' %}" class="navbar-brand" title="Directo al Artista">
+                            <div class="logo">
+                                <img src="{{ STATIC_URL }}/img/logo.svg" height="42" width="150" alt="Directo al Artista" />
+                            </div>
+                        </a>
+                    </div>
+
+                    <nav class="collapse navbar-collapse daa-navbar-collapse" role="navigation">
+                        <ul class="nav navbar-nav">
+                            {% block nav-catalog %}
+                            <li class="catalog">
+                                <a href="/catalog">
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                    <span class="text">Artistas</span>
+                                </a>
+                            </li>
+                            {% endblock %}
+                            {% block nav-how %}
+                            <li class="how">
+                                <a href="/how">
+                                    <span class="glyphicon glyphicon-info-sign"></span>
+                                    <span class="text">C&oacute;mo funciona</span>
+                                </a>
+                            </li>
+                            {% endblock %}
+                            {% block nav-register %}
+                            {% if not user.is_authenticated %}
+                            <li class="register">
+                                <a href="/register">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    <span class="text">Reg&iacute;strate</span>
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% endblock %}
+                            {% if user.is_authenticated %}
+                            {% block nav-myaccount %}
+                            <li class="dropdown">
+                            {% endblock %}
+                                <a class="dropdown-toggle" id="dropuser" data-toggle="dropdown" href="#">
+                                    <span class="glyphicon glyphicon-log-in"></span> Mi cuenta
+                                </a>
+                                <ul class="dropdown-menu withoutborder" role="menu" aria-labelledby="dropuser">
+                                    <li><a href="/accounts/profile"><span class="glyphicon glyphicon-user"></span> Mi cuenta</a></li><!--
+                                 --><li><a href="/accounts/logout"><span class="glyphicon glyphicon-log-out"></span> Cerrar sesi&oacute;n</a></li>
+                                </ul>
+                            </li>
+                            {% else %}
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" id="dropuser" data-toggle="dropdown" href="#">
+                                    <span class="glyphicon glyphicon-log-in"></span> Iniciar sesi&oacute;n
+                                </a>
+                                <ul class="dropdown-menu withoutborder" role="menu" aria-labelledby="dropuser">
+                                    <li class="login-form">
+                                        <form method="post" action="{% url 'django.contrib.auth.views.login' %}?next={{ request.get_full_path }}" accept-charset="UTF-8" role="form">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                                                    <input type="email" placeholder="Correo electr&oacute;nico" id="username" name="username" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                                    <input type="password" placeholder="Contrase&ntilde;a" id="password" name="password" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div  class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="remember-me" id="remember-me" value="1">Recu&eacute;rdame
+                                                </label>
+                                            </div>
+                                            <input class="btn btn-danger" type="submit" id="sign-in" value="Entrar">
+                                            <div><input type="hidden" name="next" value="{{ request.get_full_path }}" /></div>
+                                        </form>
+                                    </li>
+                                    <li><a data-toggle="modal" role="button" href="/password_reset">He olvidado mi contrase&ntilde;a</a></li><!--
+                                 --><li><a data-toggle="modal" role="button" href="/accounts/resend">Activar cuenta</a></li>
+                                </ul>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+
+                </div>
+            </nav>
+        </header>
+
+        {% block content %}{% endblock content %}
+
+        <footer class="daa-footer hidden-print" role="contentinfo">
+            <nav>
+                <ul class="list-inline">
+                    <li itemscope itemtype="http://schema.org/Organization">&copy; 2014 <span itemprop="name">Directo al Artista</span></li><!--
+                 --><li><a href="/faq/">Ayuda</a></li><!--
+                 --><li><a href="/legal/">Aviso legal y condiciones</a></li><!--
+                 --><li><a href="/about/">Qui&eacute;nes somos</a></li><!--
+                 --><li><a href="/contact/">Contacto</a></li>
+                </ul>
+                <ul class="list-inline">
+                    <li>
+                        <a href="http://twitter.com/DirectoArtista" target="_blank" title="Twitter">
+                            <div class="logo-twitter"></div>
+                        </a>
+                    </li><!--
+                 --><li>
+                        <a href="http://www.facebook.com/directoalartista" target="_blank" title="Facebook">
+                            <div class="logo-facebook"></div>
+                        </a>
+                    </li><!--
+                 --><li>
+                        <a href="http://plus.google.com/+DirectoalartistaCom" target="_blank" title="Google Plus">
+                            <div class="logo-google-plus"></div>
+                        </a>
+                    </li><!--
+                 --><li>
+                        <a href="http://www.tresnetwork.com" target="_blank" title="Tres Network">
+                            <div class="logo-tres-network"></div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+
+        {% block javascript_library %}
+            <script src="{{ STATIC_URL }}js/vendor/jquery-2.1.3.min.js"></script>
+            {% load compressed %}
+            {% compressed_js 'vendor' %}
+            {% compressed_js 'app' %}
+        {% endblock javascript_library %}
+
+    {% endblock body %}
+    </body>
+</html>

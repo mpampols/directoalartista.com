@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }}upgrade_plan_completed{% endblock %}
+
+{% block page_title %}Plan actualizado - Directo al Artista{% endblock %}
+{% block meta_description %}Plan actualizado{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li><a href="/accounts/profile">Mi cuenta</a></li><!--
+                     --><li><a href="/upgradeplan">Planes art&iacute;sticos</a></li><!--
+                     --><li class="active">Plan Gratuito en espera</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Plan Gratuito en espera</h1>
+                <p>
+                    Hemos cancelado el pago recurrente de tu anterior plan. Cuando caduque, volver&aacute;s a tener Gratuito.
+                </p>
+                <p>
+                    Puedes volver a <strong><a href="/accounts/profile">Mi cuenta</a></strong> para actualizar tu anuncio.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

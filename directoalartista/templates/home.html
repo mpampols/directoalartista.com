@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }} home{% endblock %}
+
+{% block page_title %}Directo al Artista{% endblock %}
+{% block meta_description %}Contrata los mejores artistas sin intermediarios. Contacta directamente con artistas famosos, de televisi&oacute;n (ej: MYHYV, actores de series), DJ's, m&uacute;sicos, etc.{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block content %}
+    <form role="search" method="get" action="/catalog" name="search" id="search">
+        <section class="home-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="row">
+                        <div class="slogan">
+                            <div class="text col-md-8 col-lg-8 col-sm-8">
+                                <!-- TODO: Change to an h1? -->
+                                <div class="title-top">
+                                    <p>Contrata artistas</p>
+                                </div>
+                                <div class="title-bottom">
+                                    <p>sin intermediarios</p>
+                                </div>
+                            </div>
+                            <div class="image ir col-md-4 col-lg-4 col-sm-4">
+                                <span>TODO: Add a text-indented paragraph</span>
+                            </div>
+                        </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="search-form">
+                            <div class="form-group">
+                                {{ search_form.q }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search -->
+        <section class="home-search">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>&iquest;Quieres afinar la b&uacute;squeda?</h4>
+                        <div class="form-inline">
+                            <div class="form-group select-controls">
+                                <div class="control">
+                                    {{ search_form.province }}
+                                </div>
+                                <div class="most_element_list">
+                                    <ul class="list-unstyled">
+                                        {% for province in most_provinces_list %}
+                                        <li>
+                                            <a href="/catalog/?q=&province={{ province.id }}&category=0&event_type=0&price=0"><!--
+                                             -->{{ province.name }}<!--
+                                         --></a> ({{ province.num_profiles }})
+                                        </li>
+                                        {% endfor %}
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group select-controls">
+                                <div class="control">
+                                    {{ search_form.category }}
+                                </div>
+                                <div class="most_element_list">
+                                    <ul class="list-unstyled">
+                                        {% for category in most_categories_list %}
+                                        <li>
+                                            <a href="/catalog/?q=&province=0&category={{ category.id }}&event_type=0&price=0"><!--
+                                             -->{{ category.name }}<!--
+                                         --></a> ({{ category.num_profiles }})
+                                        </li>
+                                    {% endfor %}
+                                    <li>...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group select-controls">
+                                <div class="control">
+                                    {{ search_form.event_type }}
+                                </div>
+                                <div class="most_element_list">
+                                    <ul class="list-unstyled">
+                                        {% for eventtype in most_eventtypes_list %}
+                                        <li>
+                                            <a href="/catalog/?q=&province=0&category=0&event_type={{ eventtype.id }}&price=0"><!--
+                                             -->{{ eventtype.name }}<!--
+                                         --></a> ({{ eventtype.num_profiles }})
+                                        </li>
+                                        {% endfor %}
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group select-controls">
+                                <div class="control">
+                                    {{ search_form.price }}
+                                </div>
+                                <div class="most_element_list">
+                                    <ul class="list-unstyled">
+                                        {% for price in most_prices_list %}
+                                        <li>
+                                            <a href="/catalog/?q=&province=0&category=0&event_type=0&price={{ price.id }}"><!--
+                                             -->{{ price.name }}<!--
+                                         --></a> ({{ price.num_profiles }})
+                                        </li>
+                                        {% endfor %}
+                                        <li>...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group button-control">
+                                <button type="submit" class="btn btn-danger">Buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+
+    <!-- register buttons -->
+    <section class="home-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>&iquest;Buscas artistas?</h3>
+                    <p>
+                        <strong>Contacta y negocia de forma directa y gratuita</strong>
+                        con los artistas para <strong>obtener los mejores precios</strong> ahorrando
+                        intermediarios.
+                    </p>
+                    {% if not user.is_authenticated %}
+                    <p>
+                        <a class="btn btn-success btn-lg" href="accounts/promoter/register">Reg&iacute;strate como cliente</a>
+                    </p>
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+                    <h3>&iquest;Eres un artista?</h3>
+                    <p>
+                        <strong>Publica tu anuncio de forma gratuita</strong>, los promotores <strong>contactar&aacute;n
+                        directamente contigo</strong> para cerrar el bolo. Podrás proteger tu Email y tel&eacute;fono;
+                    </p>
+                    {% if not user.is_authenticated %}
+                    <p>
+                        <a class="btn btn-success btn-lg" href="accounts/artist/register">Reg&iacute;strate como artista</a>
+                    </p>
+                    {% endif %}
+
+                </div>
+                <div class="col-md-4">
+                    <h3>Agencias</h3>
+                    <p>
+                        <strong>Publica anuncios de forma gratuita</strong> de los artistas que llevas
+                        <strong>en exclusiva.</strong> Tambi&eacute;n podr&aacute;s contactar con artistas para poder
+                        ofrecerlos a tus clientes.
+                    </p>
+                    {% if not user.is_authenticated %}
+                    <p>
+                        <a class="btn btn-success btn-lg" href="accounts/agency/register">Reg&iacute;strate como agencia</a>
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

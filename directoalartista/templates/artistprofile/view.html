@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load i18n %}
+{% block meta-og-image %}
+    {% if not main_image %}
+    <meta property="og:image" content="https://www.directoalartista.com{{ STATIC_URL }}img/logo-icons/facebook-200.png"/>
+    <link rel="image_src" href="https://www.directoalartista.com{{ STATIC_URL }}img/logo-icons/facebook-200.png" />
+    {% else %}
+    <meta property="og:image" content="https://www.directoalartista.com{{ MEDIA_URL }}files/artistprofiles/{{ main_image.get_image_name_template_04 }}.jpg"/>
+    <link rel="image_src" href="https://www.directoalartista.com{{ MEDIA_URL }}files/artistprofiles/{{ main_image.get_image_name_template_04 }}.jpg" />
+    {% endif %}
+{% endblock %}
+
+{% block body_class %}{{ block.super }} myaccountartist{% endblock %}
+
+{% block page_title %}Contactar con {{ artist_profile.artistic_name }} ({{ artist_profile.category }}) - Directo al Artista{% endblock %}
+{% block meta_description %}Contacta directamente con {{ artist_profile.artistic_name }} ({{ artist_profile.category }}{{ artist_profile.get_secondary_categories_flat }}) para obtener el mejor precio y contrato.{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block nav-catalog %}
+<li class="active">
+    <a href="/catalog"><span class="glyphicon glyphicon-star"></span> cat&aacute;logo de artistas</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li><a href="/catalog">Cat&aacute;logo</a></li><!--
+                     --><li><a href="/catalog/{{ artist_profile.category.slug }}">{{ artist_profile.category }}</a></li><!--
+                     --><li class="active">{{ artist_profile.artistic_name }}</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" aria-hidden="true">{{ message }}</div>
+            {% endfor %}
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-4 col-sm-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        {% if not main_image %}
+                        <div class="thumbnail gallery">
+                            <img src="{{ STATIC_URL }}img/artist-profile-without-photo-340px.png"
+                                 alt="{{ artist_profile.artistic_name }}">
+                        </div>
+                        {% else %}
+                            <a class="thumbnail gallery" href="{{ MEDIA_URL }}files/artistprofiles/{{ main_image.get_image_name_template_04 }}.jpg">
+                                <img src="{{ MEDIA_URL }}files/artistprofiles/{{ main_image.get_image_name_template_04 }}.jpg"
+                                     alt="{{ artist_profile.artistic_name }}">
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if images %}
+                    <div class="row image-gallery">
+                        <div class="col-lg-12">
+                            <ul class="artistprofile-gallery row">
+                            {% for i in images %}
+                                <li class="col-lg-6 col-md-6 col-sm-12 col-xs-3">
+                                    <a class="gallery thumbnail"
+                                       title="{{ artist_profile.artistic_name }}"
+                                       href="{{ MEDIA_URL }}files/artistprofiles/{{ i.get_image_name_template_04 }}.jpg">
+                                        <div class="artistprofile-gallery-thumb" style="background-image: url('{{ MEDIA_URL }}files/artistprofiles/{{ i.get_image_name_template_02 }}.jpg');background-repeat: no-repeat;background-position: center center"></div>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+
+            <div class="artistprofile-panel col-md-8 col-sm-8">
+                <div class="artist-element panel panel-default">
+                    <div class="panel-heading header-{{ artist_profile.get_owner_plan }}">
+                        <div class="artist_name"><h1>{{ artist_profile.artistic_name }}</h1></div>
+                        {% if artist_profile.is_vip %}
+                        <div class="is_vip"><span class="glyphicon glyphicon-ok-sign"></span> VIP</div>
+                        {% endif %}
+                    </div>
+                    <div class="panel-body">
+                        <div class="artist_name"><h1>{{ artist_profile.artistic_name }}</h1></div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="/catalog/{{ artist_profile.category.slug }}">{{ artist_profile.category.name }}</a>{% autoescape off %}{{ artist_profile.get_secondary_categories }}{% endautoescape %}
+                                    </li><!--
+                                 --><li><strong>Se mueve por </strong> {{ artist_profile.get_provinces }}</li><!--
+                                 --><li><strong>Act&uacute;a en</strong> {{ artist_profile.get_event_type }}</li><!--
+                                 --><li><strong>Precio orientativo</strong> {{ artist_profile.get_price }}</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3 text-right">
+                                <p class="text-right">
+                                    <a class="btn btn-success btn-lg" href="/catalog/{{ artist_profile.category.slug }}/{{ artist_profile.slug }}/contact/">Contacta</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                {% if artist_profile.show_description %}
+                                <h4>Descripci&oacute;n</h4>
+                                {% endif %}
+                                <p>{{ artist_profile.show_description|linebreaks }}</p>
+                            </div>
+                            <div class="col-md-12 hidden-print">
+                                <section class="share-bar text-right">
+                                    <h5>Comparte en: </h5>
+                                    <ul class="list-inline">
+                                        <li>
+                                           <a href="#" title="Twitter" data-url="https://www.directoalartista.com/catalog/{{ artist_profile.category.slug }}/{{ artist_profile.slug }}" data-title="Contacta con {{ artist_profile.artistic_name }} en Directo al Artista">
+                                               <div class="share-icon twitter"></div>
+                                           </a>
+                                        </li><!--
+                                     --><li>
+                                           <a href="#"
+                                              title="Facebook"
+                                              data-url="https://www.directoalartista.com/catalog/{{ artist_profile.category.slug }}/{{ artist_profile.slug }}">
+                                               <div class="share-icon facebook"></div>
+                                           </a>
+                                        </li><!--
+                                     --><li>
+                                           <a href="#"
+                                              title="Google+"
+                                              data-url="https://www.directoalartista.com/catalog/{{ artist_profile.category.slug }}/{{ artist_profile.slug }}">
+                                               <div class="share-icon google-plus"></div>
+                                           </a>
+                                        </li>
+                                    </ul>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row hidden-print">
+                    <div class="col-md-12">
+                        {% for i in videos %}
+                        <p class="text-center">
+                            {% if i.video_service == 'youtube' %}
+                            <div class="videoWrapper">
+                                <iframe width="100%" src="//www.youtube.com/embed/{{ i.video_id }}" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            {% elif i.video_service == 'vimeo' %}
+                            <div class="videoWrapper">
+                                <iframe src="//player.vimeo.com/video/{{ i.video_id }}" width="100%" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </div>
+                            {% endif %}
+                        </p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

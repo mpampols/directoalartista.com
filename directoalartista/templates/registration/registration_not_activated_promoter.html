@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }}registrationnotactivated{% endblock %}
+
+{% block page_title %}Ya casi est&aacute; - Directo al Artista{% endblock %}
+{% block meta_description %}Ya casi est&aacute;{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block nav-register %}
+<li class="active">
+    <a href="/register"><span class="glyphicon glyphicon-plus"></span> reg&iacute;strate</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li><a href="/register">Reg&iacute;strate</a></li><!--
+                     --><li><a href="/accounts/promoter/register">Reg&iacute;strate como promotor</a></li><!--
+                     --><li class="active">Ya casi est&aacute;</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Ya casi est&aacute;</h1>
+                <p>
+                    El correo electr&oacute;nico facilitado ya est&aacute; dado de alta pero no activado o se desactiv&oacute; a petici&oacute;n del usuario.
+                </p>
+                <p>
+                    Puedes pedir el correo para activar tu cuenta <a href="/accounts/resend/">aqu&iacute;</a>
+                </p>
+                <p>
+                    Si no recibides el correo de activaci&oacute;n, comprueba la bandeja de Spam.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% for image in artist_profile_images %}
+<div class="col-lg-2 col-sm-4 col-md-2">
+    <div class="thumbnail">
+        <div class="wrapper"
+             style="background-image:url('{{ MEDIA_URL }}files/artistprofiles/{{ image.get_image_name_template_03 }}.jpg')">
+        </div>
+        <div class="caption">
+        {% if image.is_main != True %}
+            <a href="/artistprofile/{{ artist_profile_id }}/picture/{{ image.id }}/highlight" class="btn btn-success btn-block btn-sm">Destacar</a>
+        {% else %}
+            <a href="#" class="btn btn-success btn-block btn-sm" disabled="disabled">Destacada</a>
+        {% endif %}
+        <a href="/artistprofile/{{ artist_profile_id }}/picture/{{ image.id }}/delete" class="btn btn-danger btn-block btn-sm">Eliminar</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% if not artist_profile_images %}
+<div class="no-pictures">
+<p><strong>Todavía no tienes ninguna foto publicada.</strong></p>
+<p>¿A qu&eacute; esperas? un perfil con fotos tiene m&aacute;s posibilidades de ser contactado!</p>
+</div>
+{% endif %}

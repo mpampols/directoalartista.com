@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }} myaccountartist{% endblock %}
+
+{% block page_title %}Mi cuenta - Directo al Artista{% endblock %}
+{% block meta_description %}Mi cuenta{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block nav-myaccount %}
+<li class="dropdown active">
+{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li class="active">Mi cuenta</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" aria-hidden="true">{{ message }}</div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-center">Mi cuenta</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>&iexcl;Hola <strong>{{ user.email }}</strong>!</h3>
+                <h2>Publicar anuncio de artista</h2>
+            </div>
+        </div>
+
+
+        {% if user.agency_validated %}
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    <strong>Estado actual:</strong> <span class="text-success">Validado</span>
+                </p>
+                <p>
+                    <strong>Tipo de fichas:</strong> {{ user_plan }}
+                </p>
+                <p>
+                    Publica los anuncios de los artistas que lleves en <strong>exclusiva</strong> para que contacten contigo. Puede ser que lo tengamos que comprobar y te pidamos el contrato de exclusividad.
+                </p>
+            </div>
+        </div>
+        {% for artist_profile in artist_profiles %}
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><a href="/catalog/{{ artist_profile.category.slug }}/{{ artist_profile.slug }}">{{ artist_profile.artistic_name }}</a></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-4 col-md-3">
+                                <a href="/catalog/{{ artist_profile.category.slug }}/{{ artist_profile.slug }}" class="thumbnail">
+                                    {% if artist_profile.get_image_catalog_05 %}
+                                    <img src="{{ MEDIA_URL }}files/artistprofiles/{{ artist_profile.get_image_catalog_05 }}.jpg"
+                                         alt="{{ artist_profile.artist_name }}">
+                                    {% else %}
+                                    <img src="{{ STATIC_URL }}img/artist-profile-without-photo-340px.png"
+                                         alt="{{ artist_profile.artist_name }}">
+                                    {% endif %}
+                                </a>
+                            </div>
+                            <div class="col-xs-8 col-md-9">
+                                {% if artist_profile.get_published_status %}
+                                <p>Estado del anuncio: <span class="text-success">Publicado</span></p>
+                                {% else %}
+                                <p>Estado del anuncio: <span class="text-danger">No publicado</span></p>
+                                {% endif %}
+                                <div>
+                                    <a href="/artistprofile/edit/{{ artist_profile.id }}" class="btn btn-primary">Modificar</a>
+                                    {% if artist_profile.get_published_status %}
+                                    <a href="/artistprofile/publish/{{ artist_profile.id }}" class="btn btn-warning">Despublicar</a>
+                                    {% else %}
+                                    <a href="/artistprofile/publish/{{ artist_profile.id }}" class="btn btn-success">Publicar</a>
+                                    {% endif %}
+                                    <a href="/artistprofile/delete/{{ artist_profile.id }}" class="btn btn-danger">Eliminar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row">
+            <div class="col-md-12">
+                <strong><a href="/artistprofile/add">+ Agregar anuncio</a></strong>
+            </div>
+        </div>
+
+        {% else %}
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    <strong>Estado actual:</strong> <span class="text-danger">No validado</span>
+                </p>
+                <p>
+                    El proceso de validaci&oacute;n lleba como m&aacute;ximo 72h. Recibir&aacute;s un correo electr&oacute;nico
+                    cuando el proceso haya completado.
+                </p>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Modificar cuenta de usuario</h2>
+                <p>
+                    Puedes actualizar tu n&uacute;mero de tel&eacute;fono, correo electr&oacute;nico, nombre, direcci&oacute;n, suscripci&oacute;n al newsletter, entre otros.
+                </p>
+                <p class="text-left">
+                    <a href="edit" class="btn btn-success btn-lg">Modificar cuenta</a>
+                    <a href="/accounts/password_change" class="btn btn-success btn-lg">Cambiar contrase&ntilde;a</a>
+                </p>
+
+                <h2>Desactivar mi cuenta</h2>
+                <p>
+                    Te echaremos en falta, pero no obligamos a nadie a quedarse. Tu cuenta ser&aacute; desactivada, pero en cualquier momento podr&aacute;s activarla de nuevo.
+                </p>
+                <p class="text-left">
+                    <a id="disable_account" class="btn btn-danger btn-lg" rel="disable_account" data-content="" title="&iquest;Est&aacute;s seguro?">Desactivar cuenta</a>
+
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

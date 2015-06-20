@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }}register{% endblock %}
+
+{% block page_title %}Reg&iacute;strate - Directo al Artista{% endblock %}
+{% block meta_description %}Reg&iacute;strate de forma gratuita. Si eres artistas, crea tu anuncio. Si buscas artistas, contacta directamente con los m&aacute;s famosos, sin intermediarios. {% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block nav-register %}
+<li class="active">
+    <a href="/register"><span class="glyphicon glyphicon-plus"></span> reg&iacute;strate</a>
+</li>
+{% endblock %}
+
+{% block content %}
+    <!-- container -->    
+    <section class="static-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumbs">
+                        <ol class="breadcrumb">
+                            <li><a href="/">Inicio</a></li><!--
+                         --><li class="active">Reg&iacute;strate</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <h1 class="text-center">Reg&iacute;strate</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>&iquest;Buscas artistas?</h3>
+                    <p>
+                        No pagues m&aacute;s comisiones, habla y contrata directamente con el artista para obtener los mejores precios.
+                    </p>
+                    <p>
+                        Puedes contactar con la mayor&iacute;a de art&iacute;stas
+                        <stong>gratuitamente</stong>. Tambi&eacute;n puedes
+                        <strong>contactar con artistas VIP directamente</strong>
+                        por un precio bajo, nosotros filtramos a los clientes y s&oacute;lo facilitamos los datos a los potenciales clientes.
+                    </p>
+                    <p>
+                        <strong>T&uacute; ganas</strong>
+                        salt&aacute;ndote intermediarios y
+                        <strong>el artista gana</strong>
+                        acordando la actuaci&oacute;n directamente contigo.
+                    </p>
+                    <p>
+                        Si organizas una fiesta privada, boda u otro tipo de evento, &eacute;sta tambi&eacute;n es tu cuenta.
+                    </p>
+                    <p>
+                        <a class="btn btn-success btn-lg" href="/accounts/promoter/register">Reg&iacute;strate como promotor</a>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h3>&iquest;Eres un artista?</h3>
+                    <p>
+                        Reg&iacute;strate como artista para poder publicar un anuncio, los promotores <strong>contactar&aacute;n directamente contigo</strong>
+                        para cerrar un bolo, sin pasar por intermediarios y pudiendo llegar a un mejor trato. &Eacute;l gana, t&uacute; ganas.
+                    </p>
+                    <p>
+                        Y si quieres <strong>proteger tu contacto</strong>
+                        y no quieres que publiquemos tus datos para todo el mundo, tenemos la opci&oacute;n
+                        <strong>VIP, gratuito</strong>.
+                        Nosotros filtramos a los posibles clientes y s&oacute;lo facilitamos tus datos a los propietarios de locales o agencias.
+                    </p>
+                    <p>
+                        Tenemos diferentes planes adaptados a cada artista,
+                        <a href="/how">cons&uacute;ltalos aqu&iacute;</a>.
+                    </p>
+                    <p>
+                        <a class="btn btn-success btn-lg" href="/accounts/artist/register">Reg&iacute;strate como artista</a>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Agencias</h3>
+                    <p>
+                        Podr&aacute;s <strong>publicar gratuitamente anuncios</strong>
+                        con los artistas que lleves <strong>en exclusiva</strong>. Consigue m&aacute;s bolos para tus representados.
+                    </p>
+                    <p>
+                        Tambi&eacute;n tendr&aacute;s acceso para contactar con artistas, tanto gratuitos como VIP, para ofrecerlos a tus clientes.
+                    </p>
+                    <p>
+                        Si s&oacute;lo te interesa contactar con artistas, puedes darte de alta como promotor, así obtendr&aacute;s acceso inmediato.
+                    </p>
+                    <p>
+                        <a class="btn btn-success btn-lg" href="/accounts/agency/register">Reg&iacute;strate como agencia</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

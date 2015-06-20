@@ -1,0 +1,22 @@
+<p>
+    New payment from promoter no validated:
+</p>
+<ul>
+    <li>Mail: {{ user.email }}</li><!--
+ --><li>Phone: {{ user.phone }}</li><!--
+ --><li>Promoter name: {{ user.promoter_name }}</li><!--
+ --><li>Company name: {{ user.promoter_company_name }}</li><!--
+ --><li>CIF: {{ user.promoter_cif }}</li><!--
+ --><li>Name: {{ user.first_name }} {{ user.last_name }}</li><!--
+ --><li>DNI: {{ user.dni }}</li><!--
+ --><li>Address: {{ user.address }}</li><!--
+ --><li>Address: {{ user.postal_code }} {{ user.city }} ({{ user.province }})</li><!--
+ --><li>Additional info: {{ user.promoter_additional_info }}</li>
+</ul>
+<p>
+    Artist payed: {{ artist_payed }}
+</p>
+<p>
+    For validate promoter and send contact information:
+    <a href="https://www.directoalartista.com/admin">www.directoalartista.com/admin</a>
+</p>

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }}registrationalreadyactivated{% endblock %}
+
+{% block page_title %}Correo existente - Directo al Artista{% endblock %}
+{% block meta_description %}Correo existente{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block nav-register %}
+<li class="active">
+    <a href="/register"><span class="glyphicon glyphicon-plus"></span> reg&iacute;strate</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li><a href="/register">Reg&iacute;strate</a></li><!--
+                     --><li><a href="/accounts/artist/register">Reg&iacute;strate como artista</a></li><!--
+                     --><li class="active">Correo existente</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Correo existente</h1>
+                <p>
+                    El correo electr&oacute;nico facilitado ya est&aacute; registrado y activado, por lo que no se puede dar de alta.
+                </p>
+                <p>
+                    Puedes probar de <a href="/accounts/login">iniciar sesi&oacute;n</a> o si no recuerdas la contrase&ntilde;a, <a href="/password_reset">pedir una nueva</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

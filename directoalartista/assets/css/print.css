@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        /*background: transparent !important;*/
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+
+    .visible-print {
+        display: block !important;
+    }
+
+    tr.visible-print {
+        display: table-row !important;
+    }
+
+    th.visible-print,
+    td.visible-print {
+        display: table-cell !important;
+    }
+
+    .hidden-print {
+        display: none !important;
+    }
+
+    tr.hidden-print {
+        display: none !important;
+    }
+
+    th.hidden-print,
+    td.hidden-print {
+        display: none !important;
+    }
+
+    .catalogue .artist-element {
+        width: 40% !important;
+        height: 100%;
+        padding-bottom: 30px;
+        float: left;
+        margin-left: 10px;
+    }
+
+    .catalogue .artist-element .thumbnail-container {
+        height: 400px;
+    }
+
+    .catalogue .pagination {
+        float: left;
+        width: 100%;
+        display: inline-flex;
+    }
+
+    .myaccountartist .thumbnail img {
+        width: 40% !important;
+        height: 100%;
+    }
+
+    .myaccountartist .row .image-gallery li {
+        height: 250px;
+    }
+
+    .myaccountartist .row .image-gallery .thumbnail {
+        height: 200px;
+    }
+
+    .myaccountartist .artistprofile-panel {
+        float: left;
+        padding-top: 20px;
+    }
+}

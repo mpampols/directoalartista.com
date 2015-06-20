@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }} myaccountpromoter{% endblock %}
+
+{% block page_title %}Mi cuenta - Directo al Artista{% endblock %}
+{% block meta_description %}Mi cuenta{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block nav-myaccount %}
+<li class="dropdown active">
+{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li class="active">Mi cuenta</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" aria-hidden="true">{{ message }}</div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-center">Mi cuenta</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>&iexcl;Hola <strong>{{ user.email }}</strong>!</h3>
+                <h2>Contacto con artistas</h2>
+                <p>
+                    Puedes contactar <strong>gratuitamente</strong> con mayor&iacute;a de artistas. Los artistas VIP tienen un
+                    coste de 9,99 &euro; (precio promocional).
+                </p>
+                <p>
+                    {% if user.promoter_validated %}
+                    <strong>Estado actual: <span class="text-success">Validado</span></strong>
+                    {% else %}
+                    <p>
+                        Para contactar con artistas VIP, la primera vez validaremos que seas promotor
+                        revisando tus datos y te pasaremos el contacto. Las pr&oacute;ximas veces ya ver&aacute;s los contactos
+                        directamente sin tener que esperar.
+                    </p>
+                    <strong>Estado actual: <span class="text-danger">No validado</span></strong>
+                    {% endif %}
+                </p>
+
+                <h2>Modificar cuenta de usuario</h2>
+                <p>
+                    Puedes actualizar tu n&uacute;mero de tel&eacute;fono, correo electr&oacute;nico, nombre, direcci&oacute;n, suscripci&oacute;n al newsletter, entre otros.
+                </p>
+                <p class="text-left">
+                    <a href="edit" class="btn btn-success btn-lg">Modificar cuenta</a>
+                    <a href="/accounts/password_change" class="btn btn-success btn-lg">Cambiar contrase&ntilde;a</a>
+                </p>
+
+                <h2>Desactivar mi cuenta</h2>
+                <p>
+                    Te echaremos en falta, pero no obligamos a nadie a quedarse. Tu cuenta ser&aacute; desactivada, pero en cualquier momento podr&aacute;s activarla de nuevo.
+                </p>
+                <p class="text-left">
+                    <a id="disable_account" class="btn btn-danger btn-lg" rel="disable_account" data-content="" title="&iquest;Est&aacute;s seguro?">Desactivar cuenta</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

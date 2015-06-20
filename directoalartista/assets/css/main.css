@@ -1,0 +1,1164 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Chrome Frame prompt
+   ========================================================================== */
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+h1 {
+    font-size: 4em;
+    color: #333333;
+}
+
+h2 {
+
+    font-size: 2.5em;
+    color: #333333;  
+}
+
+h3 {
+    color: #c8102e;
+    font-weight: 700;
+    font-size: 1.6em;
+}
+
+h4 {
+    font-weight: 700;
+    font-family: "Open Sans Condensed";
+    font-size: 1.6em;
+    color: #333333;
+}
+
+a h4:hover {
+    color: #c8102e;
+    text-decoration: none;
+}
+
+.withoutborder{
+    border: 0px;
+}
+
+.search-404{
+    margin-top: 0 !important;
+}
+
+.navbar-default {
+    background-color: rgb(64, 69, 75);
+}
+
+.navbar-default .navbar-nav > li > a,
+.navbar-nav > li > a {
+    color: rgb(252, 253, 252);
+}
+
+.navbar-default .navbar-nav a span.glyphicon {
+    font-size: 16px;
+    top: 2px;
+    margin-right: 4px;
+}
+
+.navbar-brand {
+    padding-top: 0;
+}
+
+.navbar-brand .logo {
+    margin-top: 4px;
+}
+
+.navbar-nav .dropdown-menu > li > form {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.428571429;
+    color: #333333;
+    white-space: nowrap;
+}
+
+.navbar-nav .login-form {
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(216, 216, 216);
+    margin-bottom: 6px;
+}
+
+.navbar-nav .dropdown-toggle.selected {
+    background-color: #ffffff !important;
+    color: #222222;
+}
+
+.navbar-nav .form-control {
+    width: 300px;
+}
+
+ul.nav li.dropdown:hover ul.dropdown-menu{
+    display: block;
+}
+
+
+.home-header .slogan p {
+    margin: 0;
+}
+
+.home-header .slogan .image {
+    background-image: url(/static/img/slogan-image.png);
+    width: auto;
+    height: 194px;
+    float: right;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.home-search h4 {
+    margin-top: 5px;
+}
+
+.home-search .most_element_list {
+    padding: 0 15px 0;
+    border: 1px solid #D6D6D6;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.home-search .most_element_list li {
+    margin-top: 5px;
+}
+
+.home-header .search-form input[type='text'] {
+    padding: 25px 15px; 
+}
+
+.home-info {
+    margin-top: 35px;
+}
+
+.home-info p {
+    font-weight: 300;
+}
+
+section.static-page,
+section.register-form {
+    padding: 67px 30px 0px;
+    color: #333333;
+}
+
+.pricing-table {
+    background:#fff;
+    text-align: center;
+    color: #fff;
+}
+
+.pricing-table-free {
+    float: left;
+    margin:20px 0;background:url(
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAIfP378zwjjgzj8/PyMYAEYB8RmROaABAAVMg/XkcvroQAAAABJRU5ErkJggg==   ) repeat;
+
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    border:1px solid #696969;
+    border-bottom:10px solid #696969;
+}
+
+.pricing-table-unlimited {
+    float: left;
+    margin:20px 0;background:url(
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAIfP378zwjjgzj8/PyMYAEYB8RmROaABAAVMg/XkcvroQAAAABJRU5ErkJggg==   ) repeat;
+
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    border:1px solid #cd8109;
+    border-bottom:10px solid #cd8109;
+}
+
+.pricing-table-famous {
+    float: left;
+    margin:20px 0;background:url(
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAIfP378zwjjgzj8/PyMYAEYB8RmROaABAAVMg/XkcvroQAAAABJRU5ErkJggg==   ) repeat;
+
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    border:1px solid #a12f23;
+    border-bottom:10px solid #a12f23; 
+}
+
+.pricing-table-starter {
+    float: left;
+    margin:20px 0;background:url(
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAIfP378zwjjgzj8/PyMYAEYB8RmROaABAAVMg/XkcvroQAAAABJRU5ErkJggg==   ) repeat;
+
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    border:1px solid #1d6391;
+    border-bottom:10px solid #1d6391; 
+}
+
+.pricing-table strong { font-weight: 700; color: #3d3d3d; }
+
+.pricing-table-header-free {
+    padding: 5px 0 5px 0;
+    background: #848482;
+    border-bottom:10px solid #696969;
+}
+
+.pricing-table-header-unlimited {
+    padding: 5px 0 5px 0;
+    background: #f39c12;
+    border-bottom:10px solid #cd8109;
+}
+
+.pricing-table-header-famous {
+    padding: 5px 0 5px 0;
+    background: #c0392b;
+    background-image: url('/static/img/star-plan.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-bottom:10px solid #a12f23;
+}
+
+.pricing-table-header-starter {
+    padding: 5px 0 5px 0;
+    background: #2980b9;
+    border-bottom:10px solid #1d6391;
+}
+
+.pricing-table-header-free h2,
+.pricing-table-header-unlimited h2,
+.pricing-table-header-famous h2,
+.pricing-table-header-starter h2{
+    color:#FFF;
+}
+
+.pricing-table-header-free h3,
+.pricing-table-header-unlimited h3,
+.pricing-table-header-famous h3,
+.pricing-table-header-starter h3{
+    color:#FFF;
+}
+
+.pricing-table-header-famous h3 small{
+    color:#FFF !important;
+}
+
+.pricing-table-text {
+    margin: 15px 30px 0 30px;
+    padding: 0 10px 15px 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    color: #888;
+}
+
+.pricing-table-features {
+    margin: 15px 10px 0 10px;
+    padding: 0 10px 15px 10px;
+    border-bottom: 1px dashed #888;
+    text-align: center;
+    color: #888;
+}
+
+.pricing-table-features-famous {
+    padding: 1px 20px 15px 20px;
+    border-bottom: 1px dashed #888;
+    text-align: center;
+    color: #FFF;
+    background: #c0392b;
+}
+
+.pricing-table-features-famous strong {
+    color: #FFF;
+}
+
+.pricing-table-signup-free {
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+
+.pricing-table-signup-free a {
+    display: inline-block;
+    width:50%;
+    height: 50px;
+    background: #848482;
+    line-height: 50px;
+    
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.pricing-table-signup-free a:hover {
+    text-decoration: none;
+    background: #696969;
+    color: #fff;  
+}
+
+.pricing-table-signup-free a:active {
+    background: #696969;
+    color: #fff;
+}
+
+
+.pricing-table-signup-unlimited {
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+
+.pricing-table-signup-unlimited a {
+    display: inline-block;
+    width:50%;
+    height: 50px;
+    background: #f39c12;
+    line-height: 50px;
+    
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;  
+}
+
+.pricing-table-signup-unlimited a:hover {
+    text-decoration: none;
+    background-color:#cd8109;
+    color: #fff;
+}
+
+.pricing-table-signup-unlimited a:active {
+    background-color:#cd8109;
+    color: #fff;
+}
+
+.pricing-table-signup-famous {
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+
+.pricing-table-signup-famous a {
+    display: inline-block;
+    width:50%;
+    height: 50px;
+    background: #c0392b;
+    line-height: 50px;
+    
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.pricing-table-signup-famous a:hover {
+    text-decoration: none;
+    background-color:#a12f23;
+    color:#FFF;
+}
+
+.pricing-table-signup-famous a:active {
+    background-color:#a12f23;
+    color: #fff;
+}
+
+.pricing-table-signup-starter {
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+
+.pricing-table-signup-starter a {
+    display: inline-block;
+    width:50%;
+    height: 50px;
+    background: #2980b9;
+    line-height: 50px;
+    
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.pricing-table-signup-starter a:hover {
+    text-decoration: none;
+    background-color:#1d6391;
+    color: #fff;
+}
+
+.pricing-table-signup-starter a:active {
+    background-color:#1d6391;
+    color: #fff;
+}
+
+/* free */
+.header-4 {
+    background: #848482 !important;
+    font-weight:bold;
+    text-align: center;
+    color: #FFF !important;
+}
+
+/* starter */
+.header-3 {
+    background: #2980b9 !important;
+    font-weight: bold;
+    text-align: center;
+    color: #FFF !important;
+}
+
+/* unlimited */
+.header-2 {
+    background: #f39c12 !important;
+    font-weight:bold;
+    text-align: center;
+    color: #FFF !important;
+}
+
+/* famous */
+.header-1 {
+    background: #c0392b !important;
+    font-weight:bold;
+    text-align: center;
+    color: #FFF !important;
+}
+
+#ajax-updated-block-videos img {
+    margin-top: 8px;
+}
+
+.daa-footer {
+    padding-top: 40px;
+    padding-bottom: 30px;
+    margin-top: 70px;
+    text-align: center;
+}
+
+.daa-footer .logo-twitter,
+.daa-footer .logo-facebook,
+.daa-footer .logo-google-plus,
+.daa-footer .logo-tres-network {
+    background: url('/static/img/sprites-main.png') no-repeat;
+    width: 32px;
+    height: 32px;
+}
+
+.daa-footer .logo-twitter {
+    background-position: -102px -69px;
+
+}
+
+.daa-footer .logo-facebook {
+    background-position: -34px -69px;
+}
+
+.daa-footer .logo-google-plus {
+    background-position: 0px -69px;
+}
+
+.daa-footer .logo-tres-network {
+    background-position: -68px -69px;
+}
+
+.register-form .form-horizontal .control-label {
+    text-align: left;
+}
+
+.alert-form {
+    padding: 5px 15px;
+    position: absolute;
+    top: -30px;
+}
+
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+.alert-error hr {
+  border-top-color: #e6c1c7;
+}
+
+.alert-error .alert-link {
+  color: #953b39;
+}
+
+.register-form .checkbox li {
+    list-style: none;
+}
+
+/* Fix for iOS (Chrome and Safari) */
+.artistprofile-add .select-provinces ul li,
+.artistprofile-edit .select-provinces ul li,
+.artistprofile-add .select-secondary-categories ul li,
+.artistprofile-edit .select-secondary-categories ul li {
+    margin-bottom: 1px;
+}
+
+.artistprofile-add .select-provinces ul li input,
+.artistprofile-edit .select-provinces ul li input,
+.artistprofile-add .select-secondary-categories ul li input,
+.artistprofile-edit .select-secondary-categories ul li input {
+    margin-left: 0px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+}
+
+.picture-container {
+    margin-bottom: 15px;
+}
+
+.picture-container img {
+    margin-bottom: 5px;
+}
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.panel-footer-controls {
+    margin-top: 5px;
+}
+
+.upload-message {
+    margin-top: 5px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#add-video {
+    float: left;
+    margin-right: 10px;
+}
+
+#ajax-updated-block-pictures .thumbnail .wrapper {
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#ajax-updated-block-pictures > div {
+    margin-bottom: 10px;
+}
+
+/* Catalog */
+
+.catalogue .artist-element {
+    height: 445px;
+}
+
+.catalogue .artist-fields-resume {
+    margin-bottom: 0;
+}
+
+.catalogue .artist-fields-resume li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.catalogue .artist-fields-resume li {
+    font-size: 0.9em;
+}
+
+.catalogue .artist-element .panel-heading {
+    text-align: left;
+}
+
+.catalogue .artist-element .is_vip {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    top: 3px;
+}
+
+.catalogue .artist-element .panel-heading a {
+    color: #ffffff;
+    font-size: 1.0em;
+    text-shadow: 0px -1px 1px #796939;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 75%;
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.catalogue .artist-element .panel-heading a:hover {
+    text-decoration: none;
+}
+
+.catalogue .artist-element .panel-heading .glyphicon {
+    margin-left: 10px;
+}
+
+.catalogue .artist-element .thumbnail-container {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 245px;
+    background-position: 45% 15%;
+}
+
+/* Artist Profile View */
+
+.artistprofile-panel .artist-element .panel-heading {
+    text-align: left;
+    height: 50px;
+}
+
+.artistprofile-panel .artist-element .panel-heading .artist_name {
+    display: inline;
+    float: left;
+    width: 80%;
+}
+
+.artistprofile-panel .artist-element .panel-heading .artist_name h1 {
+    color: #ffffff;
+    font-size: 1.5em;
+    text-shadow: 0px -1px 1px #796939;
+    font-weight: bold;
+    margin: 3px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 30px;
+}
+
+.artistprofile-panel .artist-element .share-bar .share-icon {
+    background: url('/static/img/sprites-main.png') no-repeat;
+    width: 20px;
+    height: 20px;
+}
+
+.artistprofile-panel .artist-element .share-bar h5,
+.artistprofile-panel .artist-element .share-bar ul {
+    display: inline;
+}
+
+.artistprofile-panel .artist-element .share-bar ul {
+    position: relative;
+    top: 5px;
+    margin-left: 6px;
+}
+
+.artistprofile-panel .artist-element .share-bar .share-icon.twitter {
+    background-position: -116px -42px;
+}
+
+.artistprofile-panel .artist-element .share-bar .share-icon.facebook {
+    background-position: -116px -21px;
+}
+
+.artistprofile-panel .artist-element .share-bar .share-icon.google-plus {
+    background-position: -116px 0px;
+}
+
+.artistprofile-panel .artist-element .is_vip {
+    float: right;
+    font-size: 1.5em;
+}
+
+.artistprofile-panel .artist-element .panel-heading .glyphicon {
+    margin-left: 10px;
+}
+
+.artistprofile-gallery-thumb {
+    width: 100%;
+    height: 100%;
+}
+
+.image-gallery {
+    margin-top: 15px;
+}
+
+.artistprofile-gallery {
+    margin: 0;
+    padding: 0;
+}
+
+.artistprofile-gallery li {
+    list-style: none;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.artistprofile-gallery li a {
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 95%;
+    height: 120px;
+}
+
+#cookie-bar {
+    background: rgba(0, 0, 0, 0.80);
+    line-height: 23px;
+    color: #eeeeee;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#cookie-bar p {
+    font-size: 0.9em;
+}
+
+/* Google API font loader */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/DXI1ORHCpsQm3Vp6mXoaTaRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzKRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Cond Light'), local('OpenSans-CondensedLight'), url(https://themes.googleusercontent.com/static/fonts/opensanscondensed/v7/gk5FxslNkTTHtojXrkp-xGAzD5WKQVN4wSyA0MYYi4rr7w4p9aSvGirXi6XmeXNA.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Condensed Bold'), local('OpenSans-CondensedBold'), url(https://themes.googleusercontent.com/static/fonts/opensanscondensed/v7/gk5FxslNkTTHtojXrkp-xM6Eyu0BCqAfob_z3hhzRFzr7w4p9aSvGirXi6XmeXNA.woff) format('woff');
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media (max-width: 767px) {
+    section.static-page, section.register-form {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .artistprofile-panel .artist-element .is_vip {
+        text-align: center;
+        width: 100%;
+    }
+
+    .artistprofile-panel .artist-element .panel-heading .artist_name h1 {
+        display: none;
+    }
+
+    .artistprofile-panel .artist-element .panel-body .artist_name h1 {
+        margin: 0 !important;
+        font-size: 1.5em;
+    }
+
+    .catalogue .artist-element .panel-heading a {
+        width: 70%;
+        font-size: 0.85em;
+        margin-top: 3px;
+    }
+
+    .home-header {
+        padding: 67px 0px 0px;
+        font-size: 16px;
+        color: #333333;
+        text-align: center;
+    }
+
+    .home-header .slogan {
+        margin-top: 1em;
+    }
+
+    .home-header .slogan .text {
+        float: left;
+        text-align: left;
+        position: relative;
+    }
+
+    .home-header .slogan .title-top p {
+        font-size: 2em;
+        font-weight: 300;
+    }
+
+    .home-header .slogan .title-bottom p {
+        font-size: 1.8em;
+        font-weight: 700;
+    }
+
+    .home-header .slogan .title-bottom {
+        position: relative;
+        left: 20px;
+    }
+
+    .home-search .form-group.select-controls {
+        width: 48%;
+        float: left;
+        margin-right: 2%;
+    }
+
+    .home-search .form-group.button-control {
+        float: left;
+    }
+
+    .artistprofile-add .select-provinces ul,
+    .artistprofile-edit .select-provinces ul,
+    .artistprofile-add .select-secondary-categories ul,
+    .artistprofile-edit .select-secondary-categories ul {
+        -moz-column-count: 1;
+        -moz-column-gap: 20px;
+        -webkit-column-count: 1;
+        -webkit-column-gap: 20px;
+        column-count: 1;
+        column-gap: 20px;
+        padding-left: 20px;
+    }
+
+    .daa-footer li {
+        font-size: 1.0em;
+        line-height: 1.9em;
+    }
+}
+
+@media (min-width: 768px) {
+    .home-header {
+        padding: 67px 30px 0px;
+        font-size: 16px;
+        color: #333333;
+        text-align: center;
+    }
+
+    .home-header .slogan {
+        margin-top: 3.5em;
+    }
+
+    .home-header .slogan .text {
+        float: left;
+        text-align: left;
+        position: relative;
+        top: 20px;
+    }
+
+    .home-header .slogan .title-top p {
+        font-size: 3.5em;
+        font-weight: 300;
+    }
+
+    .home-header .slogan .title-bottom p {
+        font-size: 3.5em;
+        font-weight: 700;
+    }
+
+    .home-header .slogan .title-bottom {
+        position: relative;
+        left: 120px;
+    }
+
+    .home-search .form-group.select-controls {
+        width: 20%;
+        float: left;
+        margin-right: 2%;
+    }
+
+    .home-search .form-group.button-control {
+        float: right;
+        text-align: right;
+    }
+
+    .artistprofile-add .select-provinces ul,
+    .artistprofile-edit .select-provinces ul,
+    .artistprofile-add .select-secondary-categories ul,
+    .artistprofile-edit .select-secondary-categories ul {
+        -moz-column-count: 3;
+        -moz-column-gap: 20px;
+        -webkit-column-count: 3;
+        -webkit-column-gap: 20px;
+        column-count: 3;
+        column-gap: 20px;
+        padding-left: 20px;
+    }
+
+    .artistprofile-panel .artist-element .panel-body .artist_name h1 {
+        display: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .artistprofile-add .select-provinces ul,
+    .artistprofile-edit .select-provinces ul,
+    .artistprofile-add .select-secondary-categories ul,
+    .artistprofile-edit .select-secondary-categories ul {
+        -moz-column-count: 4;
+        -moz-column-gap: 20px;
+        -webkit-column-count: 4;
+        -webkit-column-gap: 20px;
+        column-count: 4;
+        column-gap: 20px;
+        padding-left: 20px;
+    }
+
+    .artistprofile-gallery li:nth-child(odd) a {
+        float: left;
+    }
+
+    .artistprofile-gallery li:nth-child(even) a {
+        float: right;
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (   min--moz-device-pixel-ratio: 2),
+       only screen and (     -o-min-device-pixel-ratio: 2/1),
+       only screen and (        min-device-pixel-ratio: 2),
+       only screen and (                min-resolution: 192dpi),
+       only screen and (                min-resolution: 2dppx) {
+
+    .home-header .slogan .image {
+        background-image: url('/static/img/slogan-image_2x.png');
+    }
+
+    .artistprofile-panel .artist-element .share-bar .share-icon {
+        background: url('/static/img/sprites-main_2x.png') no-repeat;
+        background-size: 136px 101px;
+    }
+
+    .daa-footer .logo-twitter,
+    .daa-footer .logo-facebook,
+    .daa-footer .logo-google-plus,
+    .daa-footer .logo-tres-network {
+        background: url('/static/img/sprites-main_2x.png') no-repeat;
+        background-size: 136px 101px;
+    }
+
+    .daa-footer .logo-twitter {
+        background-position: -102px -69px;
+
+    }
+
+    .daa-footer .logo-facebook {
+        background-position: -34px -69px;
+    }
+
+    .daa-footer .logo-google-plus {
+        background-position: 0px -69px;
+    }
+
+    .daa-footer .logo-tres-network {
+        background-position: -68px -69px;
+    }
+}
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}

@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }} contact {% endblock %}
+
+{% block page_title %}Contacta - Directo al Artista{% endblock %}
+{% block meta_description %}Formulario de contacto{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block content %}
+    <!-- container -->    
+    <section class="static-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumbs">
+                        <ol class="breadcrumb">
+                            <li><a href="/">Inicio</a></li><!--
+                         --><li class="active">Contacto</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center">Contacto</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Formulario</h3>
+                    <form action="/contact/" method="post" class="form-horizontal" role="form">
+                        {% csrf_token %}
+                            {{ form.non_field_errors }}
+                        <div class="form-group">
+                            {% if form.name.errors %}
+                            <div class="alert alert-form alert-warning"> <strong>El nombre es obligatorio</strong>
+                            </div>
+                            {% endif %}
+                            <label for="id_name" class="col-lg-3 control-label">Nombre</label>
+                            <div class="col-lg-6">{{ form.name }}</div>
+                        </div>
+                        <div class="form-group">
+                            {% if form.sender.errors %}
+                            <div class="alert alert-form alert-warning"> <strong>El correo electr&oacute;nico no es v&aacute;lido</strong>
+                            </div>
+                            {% endif %}
+                            <label for="id_sender" class="col-lg-3 control-label">Correo electr&oacute;nico</label>
+                            <div class="col-lg-6">{{ form.sender }}</div>
+                        </div>
+                        <div class="form-group">
+                            {% if form.phone.errors %}
+                            <div class="alert alert-form alert-warning">
+                                <strong>El tel&eacute;fono es obligatorio</strong>
+                            </div>
+                            {% endif %}
+                            <label for="id_phone" class="col-lg-3 control-label">Tel&eacute;fono</label>
+                            <div class="col-lg-4">{{ form.phone }}</div>
+                        </div>
+                        <div class="form-group">
+                            {% if form.typeofquery.data == "" %}
+                            <div class="alert alert-form alert-warning">
+                                <strong>Selecciona el tipo de consulta que deseas realizar</strong>
+                            </div>
+                            {% endif %}
+                            <label for="id_typeofquery" class="col-lg-3 control-label">Tipo de consulta</label>
+                            <div class="col-lg-6">{{ form.typeofquery }}</div>
+                        </div>
+                        <div class="form-group">
+                            {% if form.message.errors %}
+                            <div class="alert alert-form alert-warning">
+                                <strong>Debes escribir un mensaje. Como m&aacute;ximo puede tener 2000 car&aacute;cteres.</strong> 
+                            </div>
+                            {% endif %}
+                            <label for="id_message" class="col-lg-3 control-label">Mensaje</label>
+                            <div class="col-lg-8">{{ form.message }}</div>
+                        </div>
+                        <div class="form-group">
+                            {% if form.acceptpolicy.errors %}
+                            <div class="alert alert-form alert-warning">
+                                <strong>Debes aceptar la pol&iacute;tica de privacidad de datos</strong>
+                            </div>
+                            {% endif %}
+                            <div class="col-lg-offset-3 col-lg-10">
+                                <div class="checkbox">
+                                    {{ form.acceptpolicy }}
+                                    <label for="id_acceptpolicy">
+                                        Acepto la
+                                        <a href="/legal/" target="_blank">pol&iacute;tica de privacidad de datos</a>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-lg-10">
+                                <button type="submit" class="btn btn-success">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h3>Contacto</h3>
+                    <h4>Horario de atenci&oacute;n al p&uacute;blico</h4>
+                    <p>De lunes a viernes, de 10h a 19h, excepto festivos</p>
+                    <h4>Tel&eacute;fono comercial</h4>
+                    <p>
+                        <a href="tel:+34634540056">(+34) 634 540 056</a>
+                    </p>
+                    <h4>Correo electr&oacute;nico</h4>
+                    <p>
+                        <a href="mailto:info@directoalartista.com" target="_blank">info@directoalartista.com</a>
+                    </p>
+                    <h4>Direcci&oacute;n social</h4>
+                    <address>
+                        <strong>Tres Network SCP</strong><br>
+                        Passeig de la Sardana, 15<br>
+                        25230 Mollerussa (Lleida)
+                    </address>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

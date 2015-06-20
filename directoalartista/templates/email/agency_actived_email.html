@@ -1,0 +1,16 @@
+<p>
+    New agency registered:
+    <ul>
+        <li>Mail: {{ user.get_username }}</li><!--
+     --><li>Phone: {{ user.phone }}</li><!--
+     --><li>Agency name: {{ user.agency_name }}</li><!--
+     --><li>Company name: {{ user.agency_company_name }}</li><!--
+     --><li>CIF: {{ user.agency_cif }}</li><!--
+     --><li>Name: {{ user.first_name }} {{ user.last_name }}</li><!--
+     --><li>DNI: {{ user.dni }}</li><!--
+     --><li>Address: {{ user.address }}</li><!--
+     --><li>Address: {{ user.postal_code }} {{ user.city }} ({{ user.province }})</li><!--
+     --><li>Additional info: {{ user.agency_additional_info }}</li>
+    </ul>
+</p>
+<p>For validate agency: <a href="https://www.directoalartista.com/admin">www.directoalartista.com/admin</a></p>

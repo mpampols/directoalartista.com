@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body_class %}{{ block.super }}upgradeplanfree{% endblock %}
+
+{% block page_title %}Cambiar a Plan Ilimitado - Directo al Artista{% endblock %}
+{% block meta_description %}Cambiar a Plan Ilimitado{% endblock %}
+{% block meta_author %}Directo al Gratuito{% endblock %}
+
+{% block content %}
+<!-- container -->
+<section class="static-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li><a href="/accounts/profile">Mi cuenta</a></li><!--
+                     --><li><a href="/upgradeplan">Planes art&iacute;sticos</a></li><!--
+                     --><li class="active">Cambiar a Plan Gratuito</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Cambiar a Plan Gratuito</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <p>
+                    Este plan te permite:
+                </p>
+                <ul>
+                    <li><strong>Descripci&oacute;n</strong> del espect&aacute;culo</li><!--
+                 --><li>Indicar <strong>precio orientativo</strong></li><!--
+                 --><li>Contacto por <strong>correo</strong></li><!--
+                 --><li>Contacto por <strong>tel&eacute;fono</strong></li><!--
+                 --><li><strong>1 categor&iacute;a</strong> de artista seleccionable</li><!--
+                 --><li><strong>2 tipos de evento</strong> seleccionables</li><!--
+                 --><li><strong>2 provincias</strong> seleccionables</li><!--
+                 --><li>Puedes subir <strong>1 fotograf&iacute;a</strong> y <strong>1 v&iacute;deo</strong></li><!--
+                 --><li>Saldr&aacute;s en el <strong>&uacute;ltimo bloque</strong> de las b&uacute;squedas</li>
+                </ul>
+            </div>
+            <div class="col-md-5">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Actualizar plan art&iacute;stico</h3>
+                    </div>
+                    <table class="table">
+                        <tr>
+                            <td>Suscripci&oacute;n Gratuito</td>
+                            <td class="text-right">0 &euro;</td>
+                        </tr>
+                        <tr>
+                            <td>IVA</td>
+                            <td class="text-right">0 &euro;</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td class="text-right"><strong>0 &euro;</strong></td>
+                        </tr>
+                    </table>
+                    <div class="panel-body text-right">
+                        <a class="btn btn-success btn-lg" href="/upgradeplan/4/completed">Cambiar plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

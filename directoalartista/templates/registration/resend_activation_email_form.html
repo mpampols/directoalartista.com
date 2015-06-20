@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block body_class %}{{ block.super }}resend-activation-mail{% endblock %}
+
+{% block page_title %}Activar cuenta - Directo al Artista{% endblock %}
+{% block meta_description %}Activar cuenta{% endblock %}
+{% block meta_author %}Directo al Artista{% endblock %}
+
+{% block content %}
+<section class="register-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumbs">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li><!--
+                     --><li><a href="/register">Reg&iacute;strate</a></li><!--
+                     --><li class="active">Activar cuenta</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 align="center">Activar cuenta</h1>
+                <p class="text-center">
+                    Si no has recibido el correo de activaci&oacute;n, o quieres reactivar tu cuenta, solicita aqu&iacute; que se te envie un correo para activarla.
+                </p>
+                <div class="well col-md-offset-3 col-md-6">
+                    <form method="post" class="form-horizontal" role="form" action=".">
+                        {% csrf_token %}
+                        {% if form.errors %}
+                        <div class="alert alert-warning">El correo electr&oacute;nico no est&aacute; registrado o ya est&aacute activado.</div>
+                        {% endif %}
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                                    <input type="email" placeholder="Correo electr&oacute;nico" id="email" name="email" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <input type="submit" class="btn btn-success" value="Reenviar" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
